@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const testimonials = [
+  {
+    quote: "Allison made selling our home in Wellesley effortless. Her market knowledge and negotiation skills got us well above asking price! She handled every detail with professionalism and kept us informed throughout the process.",
+    author: "The Richardson Family",
+    location: "Wellesley, MA",
+    type: "Seller",
+    highlight: "Sold above asking price"
+  },
+  {
+    quote: "Professional, responsive, and genuinely caring. Allison found us our dream home in Newton within weeks. She understood exactly what we were looking for and never wasted our time with properties that didn't fit.",
+    author: "Sarah & David M.",
+    location: "Newton, MA",
+    type: "Buyer",
+    highlight: "Found dream home quickly"
+  },
+  {
+    quote: "We interviewed several agents but chose Allison for her honesty and deep understanding of the Lexington market. Best decision we made! She gave us realistic expectations and then exceeded them.",
+    author: "The Chen Family",
+    location: "Lexington, MA",
+    type: "Seller",
+    highlight: "Expert market knowledge"
+  },
+  {
+    quote: "Allison helped us navigate a very competitive market in Needham. Her strategic approach got our offer accepted over multiple competing bids. We couldn't be happier in our new home!",
+    author: "Mike & Jennifer T.",
+    location: "Needham, MA",
+    type: "Buyer",
+    highlight: "Won in competitive market"
+  },
+  {
+    quote: "As first-time sellers, we were nervous about the process. Allison walked us through every step, from staging advice to closing. Her patience and expertise made all the difference.",
+    author: "The Patel Family",
+    location: "Natick, MA",
+    type: "Seller",
+    highlight: "Excellent guidance for first-time sellers"
+  },
+  {
+    quote: "Allison represented both the sale of our Weston home and purchase of our new place in Newton. She coordinated everything seamlessly—truly a white-glove experience.",
+    author: "Robert & Lisa K.",
+    location: "Weston to Newton",
+    type: "Buyer & Seller",
+    highlight: "Seamless buy/sell coordination"
+  },
+  {
+    quote: "What sets Allison apart is her responsiveness. No matter when we had a question, she got back to us quickly. In a fast-moving market, that made all the difference.",
+    author: "The Williams Family",
+    location: "Wellesley, MA",
+    type: "Buyer",
+    highlight: "Always responsive"
+  },
+  {
+    quote: "Allison's marketing for our home was outstanding. Professional photos, virtual tour, and strategic social media exposure brought multiple offers within the first week.",
+    author: "John & Mary S.",
+    location: "Newton, MA",
+    type: "Seller",
+    highlight: "Multiple offers in first week"
+  },
+  {
+    quote: "We relocated from out of state and Allison made the process so much easier. She gave us virtual tours, answered countless questions, and helped us understand the different neighborhoods.",
+    author: "The Anderson Family",
+    location: "Lexington, MA",
+    type: "Buyer",
+    highlight: "Excellent relocation support"
+  }
+];
+
+const stats = [
+  { number: "100+", label: "Homes Sold" },
+  { number: "5★", label: "Average Rating" },
+  { number: "98%", label: "Client Satisfaction" },
+  { number: "95%", label: "Referral Rate" }
+];
+---
+
+<BaseLayout
+  title="Client Reviews"
+  description="Read what clients say about working with Allison Murray, Realtor. Real testimonials from buyers and sellers in Wellesley, Newton, Lexington, and Greater Boston."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__badge">Client Reviews</span>
+        <h1>What My Clients Say</h1>
+        <p class="hero__subtitle">
+          Real results for real families. Here's what buyers and sellers in Greater Boston
+          have to say about working with me.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        {stats.map(stat => (
+          <div class="stats__item">
+            <span class="stats__number">{stat.number}</span>
+            <span class="stats__label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="testimonials__grid">
+        {testimonials.map(testimonial => (
+          <div class="testimonial-card">
+            <div class="testimonial-card__highlight">{testimonial.highlight}</div>
+            <svg class="testimonial-card__quote" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.768-.695-1.327-.825-.55-.13-1.07-.14-1.54-.03-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l-.007.003z"/>
+            </svg>
+            <p class="testimonial-card__text">{testimonial.quote}</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">
+                {testimonial.author.charAt(0)}
+              </div>
+              <div class="testimonial-card__info">
+                <span class="testimonial-card__name">{testimonial.author}</span>
+                <span class="testimonial-card__location">{testimonial.location}</span>
+                <span class="testimonial-card__type">{testimonial.type}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--dark cta">
+    <div class="container">
+      <div class="cta__content">
+        <h2>Ready to Have a Great Experience?</h2>
+        <p class="cta__text">
+          Let's talk about your real estate goals. I'd love the opportunity to earn
+          your trust and add your success story to this page.
+        </p>
+        <div class="cta__buttons">
+          <a href="/sell" class="btn btn--primary btn--large">Get Your Free Home Valuation</a>
+          <a href="tel:9788887649" class="btn btn--white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Call (978) 888-7649
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-2xl) 0;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero__content {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hero__badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(201, 162, 39, 0.2);
+    color: var(--color-accent-light);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero__subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+  }
+
+  /* Stats Section */
+  .stats {
+    background-color: var(--color-white);
+    padding: var(--spacing-2xl) 0;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: var(--spacing-xl);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .stats__item {
+    text-align: center;
+  }
+
+  .stats__number {
+    display: block;
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .stats__label {
+    font-size: 0.875rem;
+    color: var(--color-gray);
+    font-weight: 500;
+  }
+
+  /* Testimonials Section */
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .testimonial-card {
+    background-color: var(--color-off-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card__highlight {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-md);
+    align-self: flex-start;
+  }
+
+  .testimonial-card__quote {
+    color: var(--color-accent);
+    opacity: 0.3;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .testimonial-card__text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-dark-gray);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+    flex-grow: 1;
+  }
+
+  .testimonial-card__author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    border-top: 1px solid var(--color-light-gray);
+    padding-top: var(--spacing-md);
+  }
+
+  .testimonial-card__avatar {
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .testimonial-card__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card__name {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .testimonial-card__location {
+    font-size: 0.875rem;
+    color: var(--color-gray);
+  }
+
+  .testimonial-card__type {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  /* CTA Section */
+  .cta__content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta__text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cta__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta__buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

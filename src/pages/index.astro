@@ -27,12 +27,12 @@ const stats = [
 ];
 
 const serviceAreas = [
-  { name: "Wellesley", description: "Premier suburban living with top-rated schools" },
-  { name: "Weston", description: "Exclusive estates and natural beauty" },
-  { name: "Newton", description: "Village charm meets urban convenience" },
-  { name: "Lexington", description: "Historic character with modern amenities" },
-  { name: "Needham", description: "Family-friendly with excellent community" },
-  { name: "Natick", description: "Growing hub with great accessibility" },
+  { name: "Wellesley", slug: "wellesley", description: "Premier suburban living with top-rated schools" },
+  { name: "Weston", slug: "weston", description: "Exclusive estates and natural beauty" },
+  { name: "Newton", slug: "newton", description: "Village charm meets urban convenience" },
+  { name: "Lexington", slug: "lexington", description: "Historic character with modern amenities" },
+  { name: "Needham", slug: "needham", description: "Family-friendly with excellent community" },
+  { name: "Natick", slug: "natick", description: "Growing hub with great accessibility" },
 ];
 ---
 
@@ -94,7 +94,7 @@ const serviceAreas = [
   <!-- Stats Section -->
   <section class="stats">
     <div class="container">
-      <div class="stats__grid">
+      <div class="stats__grid animate-stagger">
         {stats.map(stat => (
           <div class="stats__item">
             <span class="stats__number">{stat.number}</span>
@@ -105,11 +105,38 @@ const serviceAreas = [
     </div>
   </section>
 
+  <!-- Trust Badges -->
+  <section class="trust-badges">
+    <div class="container">
+      <div class="trust-badges__content animate-fade">
+        <span class="trust-badges__label">Trusted &amp; Certified</span>
+        <div class="trust-badges__list">
+          <div class="trust-badges__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 12 15 15 9"></polyline></svg>
+            <span>Licensed MA Agent</span>
+          </div>
+          <div class="trust-badges__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            <span>NAR Member</span>
+          </div>
+          <div class="trust-badges__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>5-Star Rated</span>
+          </div>
+          <div class="trust-badges__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>100+ Homes Sold</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Value Proposition -->
   <section class="section value-prop">
     <div class="container">
       <div class="value-prop__grid">
-        <div class="value-prop__content">
+        <div class="value-prop__content animate-slide-left">
           <h2>Why Sellers Choose Allison</h2>
           <p class="value-prop__intro">
             Selling your home is one of the biggest financial decisions you'll make.
@@ -165,12 +192,15 @@ const serviceAreas = [
           </a>
         </div>
 
-        <div class="value-prop__image">
+        <div class="value-prop__image animate-slide-right">
           <div class="value-prop__image-wrapper">
-            <div class="value-prop__image-placeholder">
-              <span>Allison Murray</span>
-              <span class="value-prop__image-subtitle">Your Local Real Estate Expert</span>
-            </div>
+            <img
+              src="/allison-headshot.jpg"
+              alt="Allison Murray - Greater Boston Realtor"
+              class="value-prop__img"
+              loading="lazy"
+              onerror="this.src='/headshot-placeholder.svg'"
+            />
           </div>
         </div>
       </div>
@@ -180,32 +210,32 @@ const serviceAreas = [
   <!-- Service Areas -->
   <section class="section section--light areas">
     <div class="container">
-      <div class="section__header">
+      <div class="section__header animate-on-scroll">
         <h2>Serving Greater Boston's Premier Communities</h2>
         <p class="section__subtitle">
           Deep local knowledge in the neighborhoods you care about most
         </p>
       </div>
 
-      <div class="areas__grid">
+      <div class="areas__grid animate-stagger">
         {serviceAreas.map(area => (
-          <div class="areas__card">
+          <a href={`/areas/${area.slug}`} class="areas__card">
             <h3 class="areas__name">{area.name}</h3>
             <p class="areas__description">{area.description}</p>
-            <a href="/sell" class="areas__link">
-              Sell in {area.name}
+            <span class="areas__link">
+              Explore {area.name}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </a>
-          </div>
+            </span>
+          </a>
         ))}
       </div>
 
       <div class="areas__cta">
-        <p>Also serving Waltham and surrounding areas</p>
-        <a href="/contact" class="btn btn--secondary">Contact Allison</a>
+        <p>Also serving <a href="/areas/waltham">Waltham</a> and surrounding areas</p>
+        <a href="/areas" class="btn btn--secondary">View All Areas</a>
       </div>
     </div>
   </section>
@@ -213,14 +243,14 @@ const serviceAreas = [
   <!-- Testimonials -->
   <section class="section testimonials">
     <div class="container">
-      <div class="section__header">
+      <div class="section__header animate-on-scroll">
         <h2>What My Clients Say</h2>
         <p class="section__subtitle">
           Real results for real families in your neighborhood
         </p>
       </div>
 
-      <div class="testimonials__grid">
+      <div class="testimonials__grid animate-stagger">
         {testimonials.map(testimonial => (
           <div class="testimonials__card">
             <svg class="testimonials__quote" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
@@ -351,6 +381,48 @@ const serviceAreas = [
     z-index: 10;
   }
 
+  /* Trust Badges */
+  .trust-badges {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-off-white);
+    border-top: 1px solid var(--color-light-gray);
+    border-bottom: 1px solid var(--color-light-gray);
+  }
+
+  .trust-badges__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .trust-badges__label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gray);
+  }
+
+  .trust-badges__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+  }
+
+  .trust-badges__item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .trust-badges__item svg {
+    color: var(--color-accent);
+  }
+
   .stats__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -438,26 +510,11 @@ const serviceAreas = [
     box-shadow: var(--shadow-xl);
   }
 
-  .value-prop__image-placeholder {
+  .value-prop__img {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-white);
-    font-family: var(--font-primary);
-    font-size: 1.5rem;
-    text-align: center;
-    padding: var(--spacing-lg);
-  }
-
-  .value-prop__image-subtitle {
-    font-family: var(--font-secondary);
-    font-size: 1rem;
-    opacity: 0.8;
-    margin-top: var(--spacing-xs);
+    object-fit: cover;
+    object-position: center top;
   }
 
   /* Service Areas */
@@ -469,12 +526,14 @@ const serviceAreas = [
   }
 
   .areas__card {
+    display: block;
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
     border: 1px solid var(--color-light-gray);
+    text-decoration: none;
   }
 
   .areas__card:hover {

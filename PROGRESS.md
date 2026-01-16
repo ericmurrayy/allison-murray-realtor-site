@@ -20,10 +20,11 @@
 - [x] Global CSS design system (navy + gold color scheme)
 - [x] Responsive layout system
 - [x] SEO-friendly BaseLayout component
+- [x] Schema.org structured data for Local Business/Real Estate Agent
 
 ### Components
 - [x] Header with mobile navigation
-- [x] Footer with full contact info and service areas
+- [x] Footer with full contact info, service area links, and legal links
 - [x] Consistent CTA buttons (seller-focused)
 
 ### Pages
@@ -32,49 +33,107 @@
 - [x] **Buy** (`/buy`) - Buyer resources, community guides, process overview
 - [x] **About** (`/about`) - Bio, credentials, values
 - [x] **Contact** (`/contact`) - Contact form, phone/email, service areas
+- [x] **Listings** (`/listings`) - Links to Chinatti Realty listings page
+- [x] **Reviews** (`/reviews`) - Client testimonials page with 9 reviews
+- [x] **Privacy** (`/privacy`) - Privacy policy page
+
+### Town-Specific SEO Pages (NEW)
+- [x] **Areas Hub** (`/areas`) - Overview of all service areas
+- [x] **Wellesley** (`/areas/wellesley`) - Town page with market stats, neighborhoods
+- [x] **Weston** (`/areas/weston`) - Town page with market stats, neighborhoods
+- [x] **Newton** (`/areas/newton`) - Town page with market stats, neighborhoods
+- [x] **Lexington** (`/areas/lexington`) - Town page with market stats, neighborhoods
+- [x] **Needham** (`/areas/needham`) - Town page with market stats, neighborhoods
+- [x] **Natick** (`/areas/natick`) - Town page with market stats, neighborhoods
+- [x] **Waltham** (`/areas/waltham`) - Town page with market stats, neighborhoods
 
 ### SEO & Technical
-- [x] sitemap.xml
+- [x] sitemap.xml (updated with all new pages)
 - [x] robots.txt
 - [x] Favicon (SVG)
 - [x] Meta descriptions on all pages
 - [x] Open Graph tags
+- [x] Schema.org structured data for RealEstateAgent
+- [x] Google Analytics 4 integration (placeholder ID)
+
+### Forms & Lead Capture
+- [x] Contact form connected to Formspree (placeholder ID)
+- [x] Sell page valuation form connected to Formspree (placeholder ID)
+- [x] Hidden fields for form type and subject lines
+- [x] Success page redirects configured
+
+---
+
+## Configuration Required Before Launch
+
+### 1. Formspree Setup
+Replace `YOUR_FORMSPREE_ID` in these files with your actual Formspree form ID:
+- `src/pages/contact.astro` (line ~87)
+- `src/pages/sell.astro` (line ~93)
+
+Steps:
+1. Go to https://formspree.io
+2. Create a new form
+3. Copy the form endpoint ID
+4. Replace `YOUR_FORMSPREE_ID` with your ID
+
+### 2. Google Analytics Setup
+Replace `G-XXXXXXXXXX` in `src/layouts/BaseLayout.astro` (line ~21) with your actual GA4 Measurement ID.
+
+Steps:
+1. Go to Google Analytics
+2. Create a new GA4 property
+3. Get your Measurement ID (starts with G-)
+4. Replace the placeholder
+
+### 3. Add Professional Headshot
+The site currently uses a placeholder SVG at `/headshot-placeholder.svg`.
+
+To add your actual headshot:
+1. Save your photo as `allison-murray-headshot.jpg`
+2. Place it in the `public/` folder
+3. Update the `src` attribute in these files to use `/allison-murray-headshot.jpg`:
+   - `src/pages/index.astro` (line ~198, value-prop section)
+   - `src/pages/about.astro` (line ~46, hero section)
+
+Recommended image specs:
+- Aspect ratio: 3:4 or 4:5 (portrait)
+- Minimum size: 800x1000px
+- Format: JPG or WebP for best compression
+
+### 4. Update Domain in Sitemap
+Update the domain in `public/sitemap.xml` from `allisonmurrayrealtor.com` to the actual domain.
 
 ---
 
 ## Pending / Future Enhancements
 
-### High Priority (Next Session)
-- [ ] Add professional headshot image for Allison
+### High Priority
+- [ ] Add actual professional headshot image
 - [ ] Add hero background images (home exteriors)
-- [ ] Connect contact form to backend (Formspree, Netlify Forms, etc.)
-- [ ] Add Google Analytics / tracking
-
-### Additional Pages (If Needed)
-- [ ] `/listings` - Embedded listings from Chinatti Realty
-- [ ] `/reviews` - Client testimonials page
-- [ ] `/privacy` - Privacy policy
-- [ ] `/disclosures` - Legal disclosures
-- [ ] `/areas` - Service areas hub page
-- [ ] Town-specific pages:
-  - [ ] `/areas/wellesley`
-  - [ ] `/areas/weston`
-  - [ ] `/areas/newton`
-  - [ ] `/areas/lexington`
-  - [ ] `/areas/needham`
-  - [ ] `/areas/natick`
-  - [ ] `/areas/waltham`
+- [ ] Configure actual Formspree form ID
+- [ ] Configure actual Google Analytics ID
+- [ ] Set up domain and deploy to Kinsta
 
 ### Design Enhancements
+- [x] Animate elements on scroll (fadeInUp, fadeIn, scaleIn, slideInLeft, slideInRight)
+- [x] Staggered animations for grid items
+- [x] Add loading states to forms (spinner animation)
+- [x] Page transitions using Astro View Transitions API
+- [x] Trust badges section with certifications
 - [ ] Add testimonial photos
 - [ ] Add property images/gallery
-- [ ] Animate elements on scroll
-- [ ] Add loading states to forms
+- [ ] Add success/thank you messages after form submission
 
 ### Performance
 - [ ] Optimize images (WebP conversion)
 - [ ] Lazy load images
 - [ ] Preload critical assets
+
+### Additional Features
+- [ ] Blog for content marketing
+- [ ] Home valuation calculator widget
+- [ ] MLS search integration
 
 ---
 
@@ -98,6 +157,31 @@ npm run preview
 1. Build the site: `npm run build`
 2. Output is in `/dist` folder
 3. Upload `/dist` contents to Kinsta Static Hosting
+4. Configure custom domain
+5. Enable HTTPS
+
+---
+
+## Site Structure
+
+```
+/                     - Home page (seller-focused hero)
+/sell                 - Sell your home (main conversion page)
+/buy                  - Buy a home
+/listings             - View listings (links to Chinatti)
+/areas                - Service areas hub
+/areas/wellesley      - Wellesley town page
+/areas/weston         - Weston town page
+/areas/newton         - Newton town page
+/areas/lexington      - Lexington town page
+/areas/needham        - Needham town page
+/areas/natick         - Natick town page
+/areas/waltham        - Waltham town page
+/reviews              - Client testimonials
+/about                - About Allison
+/contact              - Contact form
+/privacy              - Privacy policy
+```
 
 ---
 
@@ -109,12 +193,35 @@ npm run preview
 - Mobile-responsive layout
 - SEO fundamentals in place
 
+### Session 2 (January 2026)
+- Added Formspree integration for contact forms
+- Added Google Analytics 4 tracking
+- Added Schema.org structured data
+- Created town-specific SEO pages (7 towns)
+- Created /reviews testimonials page
+- Created /privacy policy page
+- Created /listings page
+- Created /areas hub page
+- Updated header/footer navigation
+- Updated sitemap with all new pages
+- Added headshot placeholder SVG
+
+### Session 3 (January 2026)
+- Added scroll animations (fadeInUp, fadeIn, scaleIn, slideInLeft, slideInRight)
+- Added staggered animations for grid items
+- Added trust badges section with certifications
+- Added Astro View Transitions API for smooth page navigation
+- Added form loading states with spinner animation
+- Added button ripple hover effects
+- Added accessibility support (prefers-reduced-motion)
+- Updated animation initialization to work with view transitions
+
 ---
 
 ## Notes for Next Chat
 1. Read this PROGRESS.md first to understand current state
 2. Run `npm install && npm run dev` to start development
-3. Focus on pending high-priority items
-4. Main conversion hub is `/sell` - all CTAs should drive there
-5. Phone: (978) 888-7649 should be prominent throughout
-6. Keep design professional but warm/friendly
+3. Main conversion hub is `/sell` - all CTAs should drive there
+4. Phone: (978) 888-7649 should be prominent throughout
+5. Replace placeholder IDs (Formspree, GA4) before launch
+6. Add actual headshot image when available

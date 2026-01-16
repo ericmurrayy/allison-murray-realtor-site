@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -7,13 +8,18 @@ interface Props {
   title: string;
   description?: string;
   canonical?: string;
+  ogImage?: string;
 }
 
 const {
   title,
   description = "Allison Murray is a trusted real estate agent serving Wellesley, Newton, Weston, Lexington, Needham, Natick, and Waltham MA. Specializing in helping homeowners sell for top dollar.",
-  canonical
+  canonical,
+  ogImage = "/og-default.jpg"
 } = Astro.props;
+
+// Replace with your actual GA4 Measurement ID
+const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
 
 const siteTitle = `${title} | Allison Murray, Realtor`;
 ---
@@ -38,9 +44,47 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- View Transitions -->
+    <ViewTransitions />
+
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Analytics 4 -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    </script>
+
+    <!-- Schema.org Structured Data for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Allison Murray",
+        "description": "Greater Boston & MetroWest Move-Up and Luxury Home Specialist",
+        "telephone": "(978) 888-7649",
+        "email": "allison@chinattirealty.com",
+        "url": "https://allisonmurrayrealtor.com",
+        "areaServed": [
+          {"@type": "City", "name": "Wellesley", "addressRegion": "MA"},
+          {"@type": "City", "name": "Weston", "addressRegion": "MA"},
+          {"@type": "City", "name": "Newton", "addressRegion": "MA"},
+          {"@type": "City", "name": "Lexington", "addressRegion": "MA"},
+          {"@type": "City", "name": "Needham", "addressRegion": "MA"},
+          {"@type": "City", "name": "Natick", "addressRegion": "MA"},
+          {"@type": "City", "name": "Waltham", "addressRegion": "MA"}
+        ],
+        "worksFor": {
+          "@type": "RealEstateAgent",
+          "name": "Chinatti Realty Group"
+        }
+      }
+    </script>
   </head>
   <body>
     <Header />
@@ -56,3 +100,46 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
     min-height: calc(100vh - 160px);
   }
 </style>
+
+<script>
+  function initAnimations() {
+    // Scroll Animation Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.animate-on-scroll, .animate-fade, .animate-scale, .animate-stagger, .animate-slide-left, .animate-slide-right').forEach(el => {
+      // Reset visibility for view transitions
+      el.classList.remove('is-visible');
+      observer.observe(el);
+    });
+
+    // Form loading state
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function() {
+        const wrapper = this.closest('.hero__form') || this.closest('.contact__form-card');
+        if (wrapper) {
+          wrapper.classList.add('form-loading');
+        }
+      });
+    });
+  }
+
+  // Initialize on first load
+  initAnimations();
+
+  // Re-initialize after view transitions
+  document.addEventListener('astro:after-swap', initAnimations);
+</script>

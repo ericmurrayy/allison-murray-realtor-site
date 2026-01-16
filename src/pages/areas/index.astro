@@ -1,0 +1,295 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const serviceAreas = [
+  {
+    name: "Wellesley",
+    slug: "wellesley",
+    tagline: "Premier Suburban Living with Top-Rated Schools",
+    description: "Known for its exceptional schools, beautiful tree-lined streets, and easy commute to Boston. Wellesley offers the perfect blend of suburban tranquility and urban accessibility.",
+    highlights: ["Top-rated public schools", "Wellesley College", "Charles River access", "Vibrant downtown"]
+  },
+  {
+    name: "Weston",
+    slug: "weston",
+    tagline: "Exclusive Estates and Natural Beauty",
+    description: "One of the most prestigious communities in Greater Boston, Weston features expansive properties, conservation land, and a commitment to preserving its natural character.",
+    highlights: ["Large estate properties", "Conservation land", "Excellent schools", "Country club living"]
+  },
+  {
+    name: "Newton",
+    slug: "newton",
+    tagline: "Village Charm Meets Urban Convenience",
+    description: "With 13 distinct villages, Newton offers diverse housing options from historic Victorians to modern new construction. Excellent transit access to Boston.",
+    highlights: ["13 unique villages", "T access to Boston", "Top-rated schools", "Crystal Lake recreation"]
+  },
+  {
+    name: "Lexington",
+    slug: "lexington",
+    tagline: "Historic Character with Modern Amenities",
+    description: "Birthplace of American liberty, Lexington combines rich history with excellent schools and a strong sense of community.",
+    highlights: ["Revolutionary War history", "Outstanding schools", "Minuteman Bikeway", "Strong community events"]
+  },
+  {
+    name: "Needham",
+    slug: "needham",
+    tagline: "Family-Friendly with Excellent Community",
+    description: "A welcoming community known for its strong schools, beautiful parks, and active downtown. Great value compared to neighboring towns.",
+    highlights: ["Award-winning schools", "Downtown Needham shops", "Charles River access", "Family-oriented"]
+  },
+  {
+    name: "Natick",
+    slug: "natick",
+    tagline: "Growing Hub with Great Accessibility",
+    description: "A dynamic community with excellent shopping, diverse housing, and easy access to Route 9 and the Mass Pike. Growing downtown with new restaurants and shops.",
+    highlights: ["Natick Mall area", "Lake Cochituate", "Commuter rail access", "Growing downtown"]
+  },
+  {
+    name: "Waltham",
+    slug: "waltham",
+    tagline: "Diverse Community with Urban Energy",
+    description: "Home to Brandeis University and a thriving restaurant scene on Moody Street. Waltham offers diverse housing options at accessible price points.",
+    highlights: ["Brandeis University", "Moody Street dining", "Historic Watch City", "Accessible prices"]
+  }
+];
+---
+
+<BaseLayout
+  title="Service Areas"
+  description="Allison Murray serves Wellesley, Weston, Newton, Lexington, Needham, Natick, and Waltham MA. Expert real estate services in Greater Boston's premier communities."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__badge">Service Areas</span>
+        <h1>Greater Boston's Premier Communities</h1>
+        <p class="hero__subtitle">
+          Deep local knowledge in the neighborhoods you care about most.
+          I live and work in these communities and understand what makes each one special.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas Grid -->
+  <section class="section areas">
+    <div class="container">
+      <div class="areas__grid">
+        {serviceAreas.map(area => (
+          <a href={`/areas/${area.slug}`} class="area-card">
+            <div class="area-card__header">
+              <h2>{area.name}</h2>
+              <span class="area-card__tagline">{area.tagline}</span>
+            </div>
+            <p class="area-card__description">{area.description}</p>
+            <ul class="area-card__highlights">
+              {area.highlights.map(highlight => (
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+            <span class="area-card__link">
+              View {area.name} Guide
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--dark cta">
+    <div class="container">
+      <div class="cta__content">
+        <h2>Looking to Buy or Sell in These Areas?</h2>
+        <p class="cta__text">
+          Let's discuss your real estate goals. I'd love to share my local knowledge
+          and help you make the best decision for your family.
+        </p>
+        <div class="cta__buttons">
+          <a href="/sell" class="btn btn--primary btn--large">Get Your Free Home Valuation</a>
+          <a href="tel:9788887649" class="btn btn--white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Call (978) 888-7649
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-2xl) 0;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero__content {
+    position: relative;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero__badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(201, 162, 39, 0.2);
+    color: var(--color-accent-light);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero__subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+  }
+
+  /* Areas Grid */
+  .areas__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .area-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-light-gray);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .area-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+
+  .area-card__header {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .area-card__header h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .area-card__tagline {
+    display: block;
+    color: var(--color-accent);
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+
+  .area-card__description {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+  }
+
+  .area-card__highlights {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .area-card__highlights li {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--color-dark-gray);
+  }
+
+  .area-card__highlights svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .area-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .area-card:hover .area-card__link {
+    color: var(--color-accent);
+  }
+
+  /* CTA Section */
+  .cta__content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta__text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cta__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .areas__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .area-card__highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .cta__buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
