@@ -105,11 +105,38 @@ const serviceAreas = [
     </div>
   </section>
 
+  <!-- Trust Badges -->
+  <section class="trust-badges">
+    <div class="container">
+      <div class="trust-badges__content animate-fade">
+        <span class="trust-badges__label">Trusted &amp; Certified</span>
+        <div class="trust-badges__list">
+          <div class="trust-badges__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 12 15 15 9"></polyline></svg>
+            <span>Licensed MA Agent</span>
+          </div>
+          <div class="trust-badges__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            <span>NAR Member</span>
+          </div>
+          <div class="trust-badges__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>5-Star Rated</span>
+          </div>
+          <div class="trust-badges__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>100+ Homes Sold</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Value Proposition -->
   <section class="section value-prop">
     <div class="container">
-      <div class="value-prop__grid animate-on-scroll">
-        <div class="value-prop__content">
+      <div class="value-prop__grid">
+        <div class="value-prop__content animate-slide-left">
           <h2>Why Sellers Choose Allison</h2>
           <p class="value-prop__intro">
             Selling your home is one of the biggest financial decisions you'll make.
@@ -165,10 +192,10 @@ const serviceAreas = [
           </a>
         </div>
 
-        <div class="value-prop__image">
+        <div class="value-prop__image animate-slide-right">
           <div class="value-prop__image-wrapper">
             <img
-              src="/allison-murray-headshot.jpg"
+              src="/headshot-placeholder.svg"
               alt="Allison Murray - Greater Boston Realtor"
               class="value-prop__img"
               loading="lazy"
@@ -182,7 +209,7 @@ const serviceAreas = [
   <!-- Service Areas -->
   <section class="section section--light areas">
     <div class="container">
-      <div class="section__header">
+      <div class="section__header animate-on-scroll">
         <h2>Serving Greater Boston's Premier Communities</h2>
         <p class="section__subtitle">
           Deep local knowledge in the neighborhoods you care about most
@@ -215,7 +242,7 @@ const serviceAreas = [
   <!-- Testimonials -->
   <section class="section testimonials">
     <div class="container">
-      <div class="section__header">
+      <div class="section__header animate-on-scroll">
         <h2>What My Clients Say</h2>
         <p class="section__subtitle">
           Real results for real families in your neighborhood
@@ -351,6 +378,48 @@ const serviceAreas = [
     margin-top: -60px;
     position: relative;
     z-index: 10;
+  }
+
+  /* Trust Badges */
+  .trust-badges {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-off-white);
+    border-top: 1px solid var(--color-light-gray);
+    border-bottom: 1px solid var(--color-light-gray);
+  }
+
+  .trust-badges__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .trust-badges__label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gray);
+  }
+
+  .trust-badges__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+  }
+
+  .trust-badges__item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .trust-badges__item svg {
+    color: var(--color-accent);
   }
 
   .stats__grid {

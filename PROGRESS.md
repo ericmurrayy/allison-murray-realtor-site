@@ -87,11 +87,19 @@ Steps:
 4. Replace the placeholder
 
 ### 3. Add Professional Headshot
-Replace the placeholder images in:
-- `src/pages/index.astro` (value-prop section)
-- `src/pages/about.astro` (hero section)
+The site currently uses a placeholder SVG at `/headshot-placeholder.svg`.
 
-A placeholder SVG is available at `/headshot-placeholder.svg`
+To add your actual headshot:
+1. Save your photo as `allison-murray-headshot.jpg`
+2. Place it in the `public/` folder
+3. Update the `src` attribute in these files to use `/allison-murray-headshot.jpg`:
+   - `src/pages/index.astro` (line ~198, value-prop section)
+   - `src/pages/about.astro` (line ~46, hero section)
+
+Recommended image specs:
+- Aspect ratio: 3:4 or 4:5 (portrait)
+- Minimum size: 800x1000px
+- Format: JPG or WebP for best compression
 
 ### 4. Update Domain in Sitemap
 Update the domain in `public/sitemap.xml` from `allisonmurrayrealtor.com` to the actual domain.
@@ -108,10 +116,13 @@ Update the domain in `public/sitemap.xml` from `allisonmurrayrealtor.com` to the
 - [ ] Set up domain and deploy to Kinsta
 
 ### Design Enhancements
+- [x] Animate elements on scroll (fadeInUp, fadeIn, scaleIn, slideInLeft, slideInRight)
+- [x] Staggered animations for grid items
+- [x] Add loading states to forms (spinner animation)
+- [x] Page transitions using Astro View Transitions API
+- [x] Trust badges section with certifications
 - [ ] Add testimonial photos
 - [ ] Add property images/gallery
-- [ ] Animate elements on scroll
-- [ ] Add loading states to forms
 - [ ] Add success/thank you messages after form submission
 
 ### Performance
@@ -194,6 +205,16 @@ npm run preview
 - Updated header/footer navigation
 - Updated sitemap with all new pages
 - Added headshot placeholder SVG
+
+### Session 3 (January 2026)
+- Added scroll animations (fadeInUp, fadeIn, scaleIn, slideInLeft, slideInRight)
+- Added staggered animations for grid items
+- Added trust badges section with certifications
+- Added Astro View Transitions API for smooth page navigation
+- Added form loading states with spinner animation
+- Added button ripple hover effects
+- Added accessibility support (prefers-reduced-motion)
+- Updated animation initialization to work with view transitions
 
 ---
 
