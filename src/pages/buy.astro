@@ -1,0 +1,475 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const buyingSteps = [
+  {
+    number: "01",
+    title: "Initial Consultation",
+    description: "We'll discuss your needs, preferences, budget, and timeline to create a personalized home search strategy."
+  },
+  {
+    number: "02",
+    title: "Get Pre-Approved",
+    description: "I'll connect you with trusted lenders to get pre-approved, so you know exactly what you can afford."
+  },
+  {
+    number: "03",
+    title: "Home Search",
+    description: "I'll curate listings that match your criteria and arrange private showings at your convenience."
+  },
+  {
+    number: "04",
+    title: "Make an Offer",
+    description: "When you find the one, I'll help you craft a competitive offer and negotiate on your behalf."
+  },
+  {
+    number: "05",
+    title: "Close & Celebrate",
+    description: "I'll guide you through inspections, appraisal, and closing to ensure a smooth path to your new home."
+  }
+];
+
+const communities = [
+  { name: "Wellesley", highlights: "Top schools, charming downtown, excellent commute" },
+  { name: "Weston", highlights: "Exclusive estates, conservation land, privacy" },
+  { name: "Newton", highlights: "Villages, restaurants, Green Line access" },
+  { name: "Lexington", highlights: "Historic charm, top schools, family-friendly" },
+  { name: "Needham", highlights: "Community feel, great schools, dining" },
+  { name: "Natick", highlights: "Convenience, shopping, diverse housing" },
+  { name: "Waltham", highlights: "Urban access, diverse options, value" }
+];
+---
+
+<BaseLayout
+  title="Buy a Home"
+  description="Find your dream home in Wellesley, Newton, Weston, Lexington, Needham, Natick, or Waltham MA. Expert buyer representation from Allison Murray, Realtor."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__badge">Home Buyers</span>
+        <h1>Find Your <span class="hero__highlight">Dream Home</span> in Greater Boston</h1>
+        <p class="hero__subtitle">
+          Whether you're a first-time buyer or looking to upgrade, I'll help you navigate
+          the competitive Greater Boston market and find the perfect home for your family.
+        </p>
+        <div class="hero__ctas">
+          <a href="/contact" class="btn btn--primary btn--large">
+            Start Your Home Search
+          </a>
+          <a href="https://www.chinattirealty.com/agents/allison-murray/" target="_blank" rel="noopener" class="btn btn--white">
+            View Current Listings
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Allison Section -->
+  <section class="section why-me">
+    <div class="container">
+      <div class="why-me__grid">
+        <div class="why-me__content">
+          <h2>Your Advocate in a Competitive Market</h2>
+          <p class="why-me__intro">
+            The Greater Boston real estate market moves fast. Homes often receive multiple offers
+            within days of listing. You need an agent who knows the market inside and out.
+          </p>
+
+          <div class="why-me__features">
+            <div class="why-me__feature">
+              <div class="why-me__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+              <div>
+                <h4>Early Access to Listings</h4>
+                <p>I often hear about homes before they hit the market, giving you a competitive edge.</p>
+              </div>
+            </div>
+
+            <div class="why-me__feature">
+              <div class="why-me__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <h4>Deep Local Knowledge</h4>
+                <p>I know these communities intimately—the best streets, school districts, and hidden gems.</p>
+              </div>
+            </div>
+
+            <div class="why-me__feature">
+              <div class="why-me__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div>
+                <h4>Strong Negotiation</h4>
+                <p>I'll advocate fiercely for your interests to get you the best possible terms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-me__image">
+          <div class="why-me__image-placeholder">
+            <span>Finding Your</span>
+            <span class="highlight">Perfect Home</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Communities Section -->
+  <section class="section section--light communities">
+    <div class="container">
+      <div class="section__header">
+        <h2>Explore Greater Boston Communities</h2>
+        <p class="section__subtitle">
+          Each community has its own character. Let me help you find the right fit.
+        </p>
+      </div>
+
+      <div class="communities__grid">
+        {communities.map(community => (
+          <div class="communities__card">
+            <h3>{community.name}, MA</h3>
+            <p>{community.highlights}</p>
+            <a href="/contact" class="communities__link">
+              Explore {community.name}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section process">
+    <div class="container">
+      <div class="section__header">
+        <h2>The Home Buying Process</h2>
+        <p class="section__subtitle">
+          A clear roadmap from first search to closing day
+        </p>
+      </div>
+
+      <div class="process__timeline">
+        {buyingSteps.map(step => (
+          <div class="process__step">
+            <div class="process__number">{step.number}</div>
+            <div class="process__content">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--dark cta">
+    <div class="container">
+      <div class="cta__content">
+        <h2>Ready to Start Your Home Search?</h2>
+        <p class="cta__text">
+          Let's talk about what you're looking for and how I can help you find it.
+        </p>
+        <div class="cta__buttons">
+          <a href="/contact" class="btn btn--primary btn--large">
+            Schedule a Consultation
+          </a>
+          <a href="tel:9788887649" class="btn btn--white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Call (978) 888-7649
+          </a>
+        </div>
+        <p class="cta__note">
+          Already thinking about selling first? <a href="/sell">Get a free home valuation</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-3xl) 0;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero__content {
+    position: relative;
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .hero__badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(201, 162, 39, 0.2);
+    color: var(--color-accent-light);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero__highlight {
+    color: var(--color-accent);
+  }
+
+  .hero__subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+
+  /* Why Me Section */
+  .why-me__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+  }
+
+  .why-me__intro {
+    font-size: 1.125rem;
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .why-me__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .why-me__feature {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+
+  .why-me__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+  }
+
+  .why-me__feature h4 {
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-secondary);
+    font-size: 1.125rem;
+  }
+
+  .why-me__feature p {
+    color: var(--color-gray);
+    margin-bottom: 0;
+  }
+
+  .why-me__image-placeholder {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    text-align: center;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .why-me__image-placeholder .highlight {
+    color: var(--color-accent);
+  }
+
+  /* Communities Section */
+  .communities__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .communities__card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-light-gray);
+    transition: all var(--transition-base);
+  }
+
+  .communities__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+
+  .communities__card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .communities__card p {
+    color: var(--color-gray);
+    font-size: 0.9375rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .communities__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-accent);
+  }
+
+  .communities__link:hover {
+    color: var(--color-accent-dark);
+  }
+
+  /* Process Section */
+  .process__timeline {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .process__step {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--color-light-gray);
+  }
+
+  .process__step:last-child {
+    border-bottom: none;
+  }
+
+  .process__number {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    flex-shrink: 0;
+    width: 60px;
+  }
+
+  .process__content h3 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .process__content p {
+    color: var(--color-gray);
+    margin-bottom: 0;
+  }
+
+  /* CTA Section */
+  .cta__content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta__text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cta__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .cta__note {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9375rem;
+  }
+
+  .cta__note a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .cta__note a:hover {
+    color: var(--color-accent-light);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .why-me__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .why-me__image {
+      order: -1;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .process__step {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .process__number {
+      width: auto;
+    }
+
+    .cta__buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

@@ -1,0 +1,229 @@
+---
+const currentYear = new Date().getFullYear();
+
+const serviceAreas = [
+  'Wellesley',
+  'Weston',
+  'Newton',
+  'Lexington',
+  'Needham',
+  'Natick',
+  'Waltham',
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <!-- Brand Column -->
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span class="footer__name">Allison Murray</span>
+          <span class="footer__title">Realtor</span>
+        </div>
+        <p class="footer__tagline">
+          Your trusted partner for buying and selling homes in Greater Boston's most desirable communities.
+        </p>
+        <div class="footer__brokerage">
+          <span>Chinatti Realty Group</span>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__section">
+        <h4 class="footer__heading">Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="/sell">Sell Your Home</a></li>
+          <li><a href="/buy">Buy a Home</a></li>
+          <li><a href="/about">About Allison</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="https://www.chinattirealty.com/agents/allison-murray/" target="_blank" rel="noopener">View Listings</a></li>
+        </ul>
+      </div>
+
+      <!-- Service Areas -->
+      <div class="footer__section">
+        <h4 class="footer__heading">Service Areas</h4>
+        <ul class="footer__links footer__links--areas">
+          {serviceAreas.map(area => (
+            <li>{area}, MA</li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer__section">
+        <h4 class="footer__heading">Get In Touch</h4>
+        <div class="footer__contact">
+          <a href="tel:9788887649" class="footer__contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            (978) 888-7649
+          </a>
+          <a href="mailto:allison@chinattirealty.com" class="footer__contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            Email Allison
+          </a>
+        </div>
+        <div class="footer__cta">
+          <a href="/sell" class="btn btn--primary">Get Your Home Value</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {currentYear} Allison Murray, Realtor. All rights reserved.</p>
+      <p class="footer__disclaimer">
+        Licensed Real Estate Agent in Massachusetts. Equal Housing Opportunity.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-3xl) 0 var(--spacing-lg);
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .footer__brand {
+    padding-right: var(--spacing-lg);
+  }
+
+  .footer__logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .footer__name {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .footer__title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .footer__tagline {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+  }
+
+  .footer__brokerage {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .footer__heading {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer__links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .footer__links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__links a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer__links--areas li {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9375rem;
+  }
+
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .footer__contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__contact-item:hover {
+    color: var(--color-accent);
+  }
+
+  .footer__cta {
+    margin-top: var(--spacing-md);
+  }
+
+  .footer__bottom {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+
+  .footer__bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .footer__disclaimer {
+    font-size: 0.8125rem !important;
+  }
+
+  @media (max-width: 900px) {
+    .footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-xl);
+    }
+
+    .footer__brand {
+      grid-column: span 2;
+      padding-right: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer__brand {
+      grid-column: span 1;
+    }
+  }
+</style>
