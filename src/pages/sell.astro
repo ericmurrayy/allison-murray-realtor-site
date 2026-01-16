@@ -387,7 +387,6 @@ const benefits = [
   }
 
   .hero__form {
-    width: 100%;
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
@@ -668,6 +667,10 @@ const benefits = [
       gap: var(--spacing-xl);
     }
 
+    .hero__grid > * {
+      width: 100%;
+    }
+
     .hero__content {
       text-align: center;
     }
@@ -681,8 +684,14 @@ const benefits = [
     }
 
     .hero__form-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .hero__form {
+      width: calc(100% - 2rem);
       max-width: 500px;
-      margin: 0 auto;
     }
 
     .benefits__grid {
