@@ -598,3 +598,74 @@ a:not(.btn) {
 a:not(.btn):active {
   opacity: 0.7;
 }
+
+/* ============================================
+   Floating Contact Button (Mobile) - Hidden, using sticky bar instead
+   ============================================ */
+.floating-cta {
+  display: none;
+}
+
+/* ============================================
+   Sticky Bottom CTA Bar (Mobile)
+   ============================================ */
+.sticky-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--color-white);
+  padding: 12px 16px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  gap: 10px;
+  border-top: 1px solid var(--color-light-gray);
+}
+
+.sticky-cta-bar__btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.sticky-cta-bar__btn--primary {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+.sticky-cta-bar__btn--primary:hover {
+  background: var(--color-accent-dark);
+}
+
+.sticky-cta-bar__btn--secondary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.sticky-cta-bar__btn--secondary:hover {
+  background: var(--color-primary-dark);
+}
+
+@media (max-width: 768px) {
+  .sticky-cta-bar {
+    display: flex;
+  }
+
+  /* Add padding to body so content isn't hidden behind sticky bar */
+  body {
+    padding-bottom: 80px;
+  }
+
+  footer {
+    padding-bottom: var(--spacing-lg);
+  }
+}
