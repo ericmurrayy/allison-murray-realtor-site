@@ -25,7 +25,7 @@
 - [x] EditorConfig for consistent editor settings
 - [x] Node version management (.nvmrc)
 - [x] Environment variable template (.env.example)
-- [x] Automatic sitemap generation (@astrojs/sitemap)
+- [x] Static sitemap.xml in public/ folder
 - [x] HTML compression and link prefetching
 
 ### Components
@@ -238,9 +238,9 @@ npm run format:check
 - Added .nvmrc for Node version management (v20)
 - Added .env.example documenting required environment variables
 - Enhanced package.json with check/format scripts and dev dependencies
-- Configured @astrojs/sitemap for automatic sitemap generation
 - Enabled HTML compression (compressHTML: true)
 - Added link prefetching for faster navigation
+- Added inline stylesheets optimization
 - Updated README.md with comprehensive setup/deployment docs
 - Fixed TypeScript error in Header.astro (cloneNode type assertion)
 
