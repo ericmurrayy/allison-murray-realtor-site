@@ -209,7 +209,7 @@ const currentPath = Astro.url.pathname;
 
     if (toggle && navList) {
       // Remove old listener by cloning
-      const newToggle = toggle.cloneNode(true);
+      const newToggle = toggle.cloneNode(true) as HTMLElement;
       toggle.parentNode?.replaceChild(newToggle, toggle);
 
       newToggle.addEventListener('click', () => {
