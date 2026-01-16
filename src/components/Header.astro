@@ -203,12 +203,34 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
-  const toggle = document.querySelector('.nav__toggle');
-  const navList = document.querySelector('.nav__list');
+  function initMobileNav() {
+    const toggle = document.querySelector('.nav__toggle');
+    const navList = document.querySelector('.nav__list');
 
-  toggle?.addEventListener('click', () => {
-    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', (!isExpanded).toString());
-    navList?.classList.toggle('is-open');
-  });
+    if (toggle && navList) {
+      // Remove old listener by cloning
+      const newToggle = toggle.cloneNode(true);
+      toggle.parentNode?.replaceChild(newToggle, toggle);
+
+      newToggle.addEventListener('click', () => {
+        const isExpanded = newToggle.getAttribute('aria-expanded') === 'true';
+        newToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+        navList.classList.toggle('is-open');
+      });
+
+      // Close menu when clicking a link
+      navList.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navList.classList.remove('is-open');
+          newToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  }
+
+  // Initialize on first load
+  initMobileNav();
+
+  // Re-initialize after view transitions
+  document.addEventListener('astro:after-swap', initMobileNav);
 </script>
