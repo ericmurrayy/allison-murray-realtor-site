@@ -21,6 +21,12 @@
 - [x] Responsive layout system
 - [x] SEO-friendly BaseLayout component
 - [x] Schema.org structured data for Local Business/Real Estate Agent
+- [x] Prettier code formatting with Astro plugin
+- [x] EditorConfig for consistent editor settings
+- [x] Node version management (.nvmrc)
+- [x] Environment variable template (.env.example)
+- [x] Automatic sitemap generation (@astrojs/sitemap)
+- [x] HTML compression and link prefetching
 
 ### Components
 - [x] Header with mobile navigation
@@ -146,11 +152,20 @@ npm install
 # Development server
 npm run dev
 
-# Build for production
+# Build for production (includes type checking)
 npm run build
 
 # Preview production build
 npm run preview
+
+# Type check only
+npm run check
+
+# Format code with Prettier
+npm run format
+
+# Check code formatting
+npm run format:check
 ```
 
 ## Deploy to Kinsta
@@ -215,6 +230,19 @@ npm run preview
 - Added button ripple hover effects
 - Added accessibility support (prefers-reduced-motion)
 - Updated animation initialization to work with view transitions
+
+### Session 4 (January 2026)
+- Improved development tooling setup
+- Added Prettier with Astro plugin for code formatting
+- Added EditorConfig for consistent editor settings
+- Added .nvmrc for Node version management (v20)
+- Added .env.example documenting required environment variables
+- Enhanced package.json with check/format scripts and dev dependencies
+- Configured @astrojs/sitemap for automatic sitemap generation
+- Enabled HTML compression (compressHTML: true)
+- Added link prefetching for faster navigation
+- Updated README.md with comprehensive setup/deployment docs
+- Fixed TypeScript error in Header.astro (cloneNode type assertion)
 
 ---
 
