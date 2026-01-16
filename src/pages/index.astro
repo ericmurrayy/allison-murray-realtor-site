@@ -230,13 +230,14 @@ const serviceAreas = [
     <div class="container">
       <div class="intro__grid">
         <div class="intro__video">
-          <div class="intro__video-placeholder">
-            <div class="intro__play-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-            </div>
-            <span class="intro__video-text">Watch: Why I Love Helping Families Find Home</span>
+          <div class="intro__video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/YFPxgPTD2Fk"
+              title="Meet Allison Murray - Your Greater Boston Realtor"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
         <div class="intro__content animate-slide-right">
@@ -623,58 +624,24 @@ const serviceAreas = [
     align-items: center;
   }
 
-  .intro__video-placeholder {
-    aspect-ratio: 16/9;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: var(--radius-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-md);
-    cursor: pointer;
-    transition: all var(--transition-normal);
+  .intro__video-wrapper {
     position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    aspect-ratio: 9/16;
+    border-radius: var(--radius-lg);
     overflow: hidden;
-  }
-
-  .intro__video-placeholder:hover {
-    transform: scale(1.02);
     box-shadow: var(--shadow-xl);
   }
 
-  .intro__video-placeholder::before {
-    content: '';
+  .intro__video-wrapper iframe {
     position: absolute;
-    inset: 0;
-    background-image: url('/allison-headshot.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-  }
-
-  .intro__play-btn {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-white);
-    box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
-  }
-
-  .intro__play-btn svg {
-    margin-left: 4px;
-  }
-
-  .intro__video-text {
-    position: relative;
-    color: var(--color-white);
-    font-weight: 500;
-    font-size: 0.9375rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   .intro__badge {
