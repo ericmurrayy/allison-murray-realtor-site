@@ -156,6 +156,34 @@ const stats = [
       </div>
     </div>
   </section>
+
+  <!-- Review Schema Markup for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Allison Murray - Realtor",
+    "@id": "https://allisonmurrayrealtor.com",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": testimonials.length.toString(),
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": testimonials.slice(0, 5).map(t => ({
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": t.author
+      },
+      "reviewBody": t.quote
+    }))
+  })} />
 </BaseLayout>
 
 <style>
