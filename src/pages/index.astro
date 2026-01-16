@@ -232,12 +232,11 @@ const serviceAreas = [
         <div class="intro__video">
           <div class="intro__video-wrapper">
             <iframe
-              src="https://www.youtube.com/embed/YFPxgPTD2Fk?rel=0&modestbranding=1&playsinline=1"
+              src="https://www.youtube.com/embed/YFPxgPTD2Fk?rel=0&modestbranding=1&playsinline=1&autoplay=0"
               title="Meet Allison Murray - Your Greater Boston Realtor"
               frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
-              loading="lazy"
             ></iframe>
           </div>
         </div>
@@ -630,8 +629,7 @@ const serviceAreas = [
     width: 100%;
     max-width: 320px;
     margin: 0 auto;
-    padding-bottom: 177.78%; /* 16:9 inverted for vertical video (16/9 * 100) */
-    height: 0;
+    aspect-ratio: 9/16;
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-xl);
@@ -639,9 +637,6 @@ const serviceAreas = [
   }
 
   .intro__video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     border: none;
