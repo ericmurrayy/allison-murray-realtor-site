@@ -29,6 +29,29 @@ const sellingSteps = [
   }
 ];
 
+const faqs = [
+  {
+    question: "How do you determine my home's value?",
+    answer: "I conduct a comprehensive market analysis (CMA) that examines recent sales of comparable homes in your neighborhood, current market conditions, your home's unique features, and buyer demand. This data-driven approach ensures accurate pricing."
+  },
+  {
+    question: "How long will it take to sell my home?",
+    answer: "In the current Greater Boston market, well-priced homes typically sell within 2-4 weeks. However, timing depends on factors like location, price point, condition, and market conditions. I'll give you a realistic timeline based on your specific situation."
+  },
+  {
+    question: "What do I need to do to prepare my home for sale?",
+    answer: "I provide a personalized preparation checklist based on your home. Generally, decluttering, minor repairs, and deep cleaning make the biggest impact. I also offer staging consultations and can recommend trusted contractors if needed."
+  },
+  {
+    question: "What are your fees?",
+    answer: "My commission is competitive with the local market and only paid at closing when your home sells. During our initial consultation, I'll explain all costs transparently so there are no surprises."
+  },
+  {
+    question: "Can I sell my home while still living in it?",
+    answer: "Absolutely! Most of my clients live in their homes during the sale. I'll work with your schedule for showings and provide tips to keep your home show-ready with minimal disruption to your daily life."
+  }
+];
+
 const benefits = [
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
@@ -228,6 +251,44 @@ const benefits = [
       </div>
     </div>
   </section>
+
+  <!-- FAQ Section -->
+  <section class="section section--light faq">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <h2>Frequently Asked Questions</h2>
+        <p class="section__subtitle">
+          Common questions from homeowners considering selling
+        </p>
+      </div>
+
+      <div class="faq__grid animate-stagger">
+        {faqs.map((faq, index) => (
+          <div class="faq__item">
+            <h3 class="faq__question">
+              <span class="faq__number">{String(index + 1).padStart(2, '0')}</span>
+              {faq.question}
+            </h3>
+            <p class="faq__answer">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
 
   <!-- CTA Section -->
   <section class="section section--dark cta">
@@ -537,6 +598,48 @@ const benefits = [
     font-size: 0.9375rem;
   }
 
+  /* FAQ Section */
+  .faq__grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .faq__item {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+  }
+
+  .faq__item:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .faq__question {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .faq__number {
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .faq__answer {
+    color: var(--color-gray);
+    line-height: 1.7;
+    margin-bottom: 0;
+    padding-left: calc(var(--spacing-md) + 1.5rem);
+  }
+
   /* CTA Section */
   .cta__content {
     text-align: center;
@@ -562,6 +665,23 @@ const benefits = [
     .hero__grid {
       grid-template-columns: 1fr;
       gap: var(--spacing-xl);
+    }
+
+    .hero__content {
+      text-align: center;
+    }
+
+    .hero__checklist {
+      align-items: center;
+    }
+
+    .hero__checklist li {
+      justify-content: center;
+    }
+
+    .hero__form-wrapper {
+      max-width: 500px;
+      margin: 0 auto;
     }
 
     .benefits__grid {
