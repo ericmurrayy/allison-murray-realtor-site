@@ -662,15 +662,18 @@ const benefits = [
 
   /* Responsive */
   @media (max-width: 1000px) {
+    .hero .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
     .hero__grid {
       grid-template-columns: 1fr;
       gap: var(--spacing-xl);
-      justify-items: center;
     }
 
     .hero__content {
       text-align: center;
-      width: 100%;
     }
 
     .hero__checklist {
@@ -682,9 +685,12 @@ const benefits = [
     }
 
     .hero__form-wrapper {
-      width: calc(100% - 3rem);
+      width: 100%;
+    }
+
+    .hero__form {
       max-width: 500px;
-      place-self: center;
+      margin: 0 auto;
     }
 
     .benefits__grid {
