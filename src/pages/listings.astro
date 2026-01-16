@@ -1,0 +1,395 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Listings"
+  description="View current listings from Allison Murray, Realtor. Homes for sale in Wellesley, Newton, Weston, Lexington, Needham, Natick, and Waltham MA."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__badge">Featured Properties</span>
+        <h1>My Listings</h1>
+        <p class="hero__subtitle">
+          Browse my current listings and recently sold properties in Greater Boston's premier communities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listings Section -->
+  <section class="section listings">
+    <div class="container">
+      <div class="listings__intro">
+        <h2>Current & Featured Listings</h2>
+        <p>
+          For the most up-to-date listings and property details, please visit my profile on the
+          Chinatti Realty Group website.
+        </p>
+      </div>
+
+      <div class="listings__embed">
+        <div class="listings__embed-card">
+          <div class="listings__embed-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <h3>View All Listings</h3>
+          <p>
+            See my complete portfolio of available properties, including detailed photos,
+            virtual tours, and property information.
+          </p>
+          <a
+            href="https://www.chinattirealty.com/agents/allison-murray/"
+            target="_blank"
+            rel="noopener"
+            class="btn btn--primary btn--large"
+          >
+            View Listings on Chinatti Realty
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="listings__service-areas">
+        <h3>I Specialize in These Communities</h3>
+        <div class="listings__areas-grid">
+          <a href="/areas/wellesley" class="listings__area">
+            <span class="listings__area-name">Wellesley</span>
+            <span class="listings__area-desc">Premier suburban living</span>
+          </a>
+          <a href="/areas/weston" class="listings__area">
+            <span class="listings__area-name">Weston</span>
+            <span class="listings__area-desc">Exclusive estates</span>
+          </a>
+          <a href="/areas/newton" class="listings__area">
+            <span class="listings__area-name">Newton</span>
+            <span class="listings__area-desc">13 unique villages</span>
+          </a>
+          <a href="/areas/lexington" class="listings__area">
+            <span class="listings__area-name">Lexington</span>
+            <span class="listings__area-desc">Historic character</span>
+          </a>
+          <a href="/areas/needham" class="listings__area">
+            <span class="listings__area-name">Needham</span>
+            <span class="listings__area-desc">Family-friendly</span>
+          </a>
+          <a href="/areas/natick" class="listings__area">
+            <span class="listings__area-name">Natick</span>
+            <span class="listings__area-desc">Growing hub</span>
+          </a>
+          <a href="/areas/waltham" class="listings__area">
+            <span class="listings__area-name">Waltham</span>
+            <span class="listings__area-desc">Urban energy</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Looking to Sell Section -->
+  <section class="section section--light sell">
+    <div class="container">
+      <div class="sell__grid">
+        <div class="sell__content">
+          <h2>Thinking of Selling?</h2>
+          <p>
+            If you're considering selling your home, I'd love to provide you with a complimentary
+            market analysis. I'll show you what similar homes are selling for and help you
+            understand your options.
+          </p>
+          <ul class="sell__benefits">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Free, no-obligation home valuation
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Detailed market analysis for your area
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Professional marketing strategy
+            </li>
+          </ul>
+          <a href="/sell" class="btn btn--primary btn--large">Get Your Free Home Valuation</a>
+        </div>
+
+        <div class="sell__image">
+          <div class="sell__image-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span>Get Top Dollar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--dark cta">
+    <div class="container">
+      <div class="cta__content">
+        <h2>Looking for Something Specific?</h2>
+        <p class="cta__text">
+          Can't find what you're looking for? Let me know your criteria and I'll help you
+          find the perfect home, even if it's not yet on the market.
+        </p>
+        <div class="cta__buttons">
+          <a href="/contact" class="btn btn--primary btn--large">Contact Me</a>
+          <a href="tel:9788887649" class="btn btn--white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Call (978) 888-7649
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-2xl) 0;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero__content {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hero__badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(201, 162, 39, 0.2);
+    color: var(--color-accent-light);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero__subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+  }
+
+  /* Listings Section */
+  .listings__intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-2xl);
+  }
+
+  .listings__intro p {
+    color: var(--color-gray);
+    font-size: 1.125rem;
+  }
+
+  .listings__embed {
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .listings__embed-card {
+    background-color: var(--color-off-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-3xl);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .listings__embed-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .listings__embed-card h3 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .listings__embed-card p {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .listings__service-areas h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .listings__areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .listings__area {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .listings__area:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .listings__area-name {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .listings__area-desc {
+    font-size: 0.875rem;
+    color: var(--color-gray);
+  }
+
+  /* Sell Section */
+  .sell__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+  }
+
+  .sell__content h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .sell__content > p {
+    color: var(--color-gray);
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .sell__benefits {
+    list-style: none;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .sell__benefits li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+  }
+
+  .sell__benefits svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .sell__image-placeholder {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    gap: var(--spacing-md);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .sell__image-placeholder span {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  /* CTA Section */
+  .cta__content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta__text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cta__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .sell__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sell__image {
+      order: -1;
+    }
+
+    .sell__image-placeholder {
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .cta__buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

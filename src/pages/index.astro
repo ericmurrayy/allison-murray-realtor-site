@@ -27,12 +27,12 @@ const stats = [
 ];
 
 const serviceAreas = [
-  { name: "Wellesley", description: "Premier suburban living with top-rated schools" },
-  { name: "Weston", description: "Exclusive estates and natural beauty" },
-  { name: "Newton", description: "Village charm meets urban convenience" },
-  { name: "Lexington", description: "Historic character with modern amenities" },
-  { name: "Needham", description: "Family-friendly with excellent community" },
-  { name: "Natick", description: "Growing hub with great accessibility" },
+  { name: "Wellesley", slug: "wellesley", description: "Premier suburban living with top-rated schools" },
+  { name: "Weston", slug: "weston", description: "Exclusive estates and natural beauty" },
+  { name: "Newton", slug: "newton", description: "Village charm meets urban convenience" },
+  { name: "Lexington", slug: "lexington", description: "Historic character with modern amenities" },
+  { name: "Needham", slug: "needham", description: "Family-friendly with excellent community" },
+  { name: "Natick", slug: "natick", description: "Growing hub with great accessibility" },
 ];
 ---
 
@@ -189,23 +189,23 @@ const serviceAreas = [
 
       <div class="areas__grid">
         {serviceAreas.map(area => (
-          <div class="areas__card">
+          <a href={`/areas/${area.slug}`} class="areas__card">
             <h3 class="areas__name">{area.name}</h3>
             <p class="areas__description">{area.description}</p>
-            <a href="/sell" class="areas__link">
-              Sell in {area.name}
+            <span class="areas__link">
+              Explore {area.name}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </a>
-          </div>
+            </span>
+          </a>
         ))}
       </div>
 
       <div class="areas__cta">
-        <p>Also serving Waltham and surrounding areas</p>
-        <a href="/contact" class="btn btn--secondary">Contact Allison</a>
+        <p>Also serving <a href="/areas/waltham">Waltham</a> and surrounding areas</p>
+        <a href="/areas" class="btn btn--secondary">View All Areas</a>
       </div>
     </div>
   </section>
@@ -469,12 +469,14 @@ const serviceAreas = [
   }
 
   .areas__card {
+    display: block;
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
     border: 1px solid var(--color-light-gray);
+    text-decoration: none;
   }
 
   .areas__card:hover {

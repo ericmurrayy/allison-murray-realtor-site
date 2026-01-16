@@ -1,0 +1,539 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const towns = [
+    {
+      slug: "wellesley",
+      name: "Wellesley",
+      tagline: "Premier Suburban Living with Top-Rated Schools",
+      heroDescription: "Discover why Wellesley is one of the most desirable communities in Greater Boston. With top-rated schools, beautiful homes, and a vibrant downtown, Wellesley offers the perfect place to call home.",
+      overview: "Wellesley is a prestigious suburban community located about 13 miles west of Boston. Known for its exceptional public schools consistently ranked among the best in Massachusetts, beautiful tree-lined streets, and convenient commute to the city, Wellesley attracts families seeking quality of life without sacrificing access to urban amenities.",
+      highlights: [
+        { title: "Top-Rated Schools", description: "Wellesley Public Schools consistently rank in the top 10 in Massachusetts, with excellent academic programs and extracurriculars." },
+        { title: "Wellesley College", description: "Home to the prestigious Wellesley College, adding cultural richness and beautiful architecture to the community." },
+        { title: "Charles River Access", description: "Enjoy kayaking, walking trails, and scenic views along the Charles River." },
+        { title: "Vibrant Downtown", description: "Wellesley Square and Linden Square offer boutique shopping, dining, and community events." }
+      ],
+      marketStats: { avgPrice: "$1.8M", avgDaysOnMarket: "21", schoolRating: "10/10" },
+      neighborhoods: ["Wellesley Hills", "Wellesley Farms", "Wellesley Square", "Dana Hall Area", "Cliff Estates"],
+      nearbyTowns: ["Newton", "Natick", "Needham", "Weston"]
+    },
+    {
+      slug: "weston",
+      name: "Weston",
+      tagline: "Exclusive Estates and Natural Beauty",
+      heroDescription: "Experience the pinnacle of suburban living in Weston. With expansive properties, pristine conservation land, and one of the most exclusive communities in New England.",
+      overview: "Weston is one of the wealthiest and most exclusive communities in Massachusetts. Located about 12 miles west of Boston, Weston is known for its large estate properties, extensive conservation land, and commitment to preserving its rural character while maintaining excellent schools and community services.",
+      highlights: [
+        { title: "Estate Properties", description: "Weston features some of the largest and most prestigious residential properties in Greater Boston." },
+        { title: "Conservation Land", description: "Over 2,000 acres of conservation land offer hiking, horseback riding, and natural beauty." },
+        { title: "Excellent Schools", description: "Weston Public Schools are among the best in the state with small class sizes and extensive resources." },
+        { title: "Country Club Living", description: "Multiple private clubs offer golf, tennis, and social activities." }
+      ],
+      marketStats: { avgPrice: "$2.5M", avgDaysOnMarket: "35", schoolRating: "10/10" },
+      neighborhoods: ["Weston Center", "Kendal Green", "Hastings", "Silver Hill", "Merriam Hill"],
+      nearbyTowns: ["Wellesley", "Newton", "Lincoln", "Wayland"]
+    },
+    {
+      slug: "newton",
+      name: "Newton",
+      tagline: "Village Charm Meets Urban Convenience",
+      heroDescription: "Discover Newton's unique blend of 13 distinct villages, excellent schools, and easy T access to Boston. From historic Victorians to modern new construction, Newton has something for everyone.",
+      overview: "Newton is one of the largest cities in Massachusetts by population, yet maintains a distinctly suburban character through its 13 unique villages. Each village has its own personality, from the bustling shops of Newton Centre to the quiet streets of Waban. The city offers excellent schools, extensive parks, and direct Green Line access to Boston.",
+      highlights: [
+        { title: "13 Unique Villages", description: "Each village—from Auburndale to West Newton—has its own character, shops, and community feel." },
+        { title: "T Access to Boston", description: "The Green Line D branch provides direct rapid transit access to downtown Boston." },
+        { title: "Top-Rated Schools", description: "Newton Public Schools are consistently ranked among the best, with strong STEM and arts programs." },
+        { title: "Crystal Lake", description: "Enjoy swimming, fishing, and recreation at Crystal Lake and other beautiful parks." }
+      ],
+      marketStats: { avgPrice: "$1.5M", avgDaysOnMarket: "18", schoolRating: "9/10" },
+      neighborhoods: ["Newton Centre", "Newtonville", "West Newton", "Waban", "Chestnut Hill", "Newton Highlands", "Auburndale", "Newton Corner", "Nonantum", "Oak Hill", "Newton Upper Falls", "Newton Lower Falls", "Thompsonville"],
+      nearbyTowns: ["Wellesley", "Weston", "Brookline", "Watertown", "Needham"]
+    },
+    {
+      slug: "lexington",
+      name: "Lexington",
+      tagline: "Historic Character with Modern Amenities",
+      heroDescription: "Walk in the footsteps of history in Lexington, where Revolutionary War heritage meets excellent schools, beautiful homes, and a strong sense of community.",
+      overview: "Lexington is famous as the birthplace of American liberty, where the first shots of the Revolutionary War were fired in 1775. Today, it's known for outstanding schools, a picturesque town center, and engaged community. The town balances historic preservation with modern amenities, making it ideal for families.",
+      highlights: [
+        { title: "Revolutionary War History", description: "Battle Green, Hancock-Clarke House, and Minute Man National Historical Park bring history alive." },
+        { title: "Outstanding Schools", description: "Lexington Public Schools are consistently ranked in the top 5 in Massachusetts." },
+        { title: "Minuteman Bikeway", description: "The 10-mile paved path connects Lexington to Cambridge, perfect for biking and walking." },
+        { title: "Strong Community Events", description: "Patriots Day celebration, Discovery Day, and farmers markets create a vibrant community calendar." }
+      ],
+      marketStats: { avgPrice: "$1.4M", avgDaysOnMarket: "16", schoolRating: "10/10" },
+      neighborhoods: ["Lexington Center", "East Lexington", "Follen Hill", "Turning Mill", "Five Fields"],
+      nearbyTowns: ["Arlington", "Bedford", "Burlington", "Lincoln", "Waltham"]
+    },
+    {
+      slug: "needham",
+      name: "Needham",
+      tagline: "Family-Friendly with Excellent Community",
+      heroDescription: "Discover Needham's welcoming atmosphere, award-winning schools, and charming downtown. A family-friendly community with excellent value compared to neighboring towns.",
+      overview: "Needham is a welcoming suburban community that consistently ranks among the best places to live in Massachusetts. Known for its strong schools, beautiful parks, and active downtown, Needham offers families an excellent quality of life at relatively more accessible prices than some neighboring communities.",
+      highlights: [
+        { title: "Award-Winning Schools", description: "Needham Public Schools offer excellent academics, athletics, and arts programs." },
+        { title: "Downtown Needham", description: "A walkable downtown with local shops, restaurants, and the historic Needham Center." },
+        { title: "Charles River Access", description: "Cutler Park and other reserves offer trails and river access." },
+        { title: "Family-Oriented", description: "Strong youth sports programs, community events, and engaged neighbors." }
+      ],
+      marketStats: { avgPrice: "$1.2M", avgDaysOnMarket: "14", schoolRating: "9/10" },
+      neighborhoods: ["Needham Center", "Needham Heights", "Needham Junction", "Charles River Area", "High Rock"],
+      nearbyTowns: ["Wellesley", "Newton", "Dedham", "Dover"]
+    },
+    {
+      slug: "natick",
+      name: "Natick",
+      tagline: "Growing Hub with Great Accessibility",
+      heroDescription: "Experience Natick's dynamic growth, diverse housing options, and excellent accessibility. From the Natick Mall to Lake Cochituate, Natick offers something for everyone.",
+      overview: "Natick is a dynamic community experiencing significant growth while maintaining its family-friendly character. With excellent access to Route 9 and the Mass Pike, diverse housing options from condos to single-family homes, and amenities ranging from the Natick Mall to Lake Cochituate, Natick appeals to a wide range of buyers.",
+      highlights: [
+        { title: "Natick Mall Area", description: "One of New England's premier shopping destinations with restaurants and entertainment." },
+        { title: "Lake Cochituate", description: "A state park offering swimming, boating, and fishing just minutes from downtown." },
+        { title: "Commuter Rail Access", description: "Natick Center station provides direct service to Boston's Back Bay and South Station." },
+        { title: "Growing Downtown", description: "New restaurants, breweries, and shops are revitalizing downtown Natick." }
+      ],
+      marketStats: { avgPrice: "$850K", avgDaysOnMarket: "12", schoolRating: "8/10" },
+      neighborhoods: ["Natick Center", "South Natick", "West Natick", "East Natick", "Sherwood"],
+      nearbyTowns: ["Wellesley", "Framingham", "Wayland", "Dover"]
+    },
+    {
+      slug: "waltham",
+      name: "Waltham",
+      tagline: "Diverse Community with Urban Energy",
+      heroDescription: "Discover Waltham's unique blend of cultural diversity, university atmosphere, and accessible home prices. From Moody Street dining to historic Watch City, Waltham offers urban energy with suburban convenience.",
+      overview: "Waltham is a diverse, vibrant community with a rich industrial history and modern energy. Home to Brandeis University and Bentley University, the city has an academic atmosphere and youthful population. Moody Street offers some of the best dining in the region, and housing prices are more accessible than neighboring towns.",
+      highlights: [
+        { title: "Brandeis University", description: "A world-class research university adding cultural and intellectual vibrancy to the community." },
+        { title: "Moody Street Dining", description: "One of Greater Boston's best restaurant rows with cuisine from around the world." },
+        { title: "Historic Watch City", description: "The former home of the American watch industry, with historic mills now converted to residences and offices." },
+        { title: "Accessible Prices", description: "More affordable than neighboring communities while offering excellent amenities." }
+      ],
+      marketStats: { avgPrice: "$650K", avgDaysOnMarket: "10", schoolRating: "7/10" },
+      neighborhoods: ["Waltham Center", "South Waltham", "Warrendale", "Cedarwood", "Lakeview"],
+      nearbyTowns: ["Lexington", "Newton", "Watertown", "Lincoln", "Belmont"]
+    }
+  ];
+
+  return towns.map(town => ({
+    params: { town: town.slug },
+    props: { town }
+  }));
+}
+
+const { town } = Astro.props;
+---
+
+<BaseLayout
+  title={`${town.name} Real Estate`}
+  description={`Looking to buy or sell in ${town.name}, MA? Allison Murray is your local ${town.name} real estate expert. ${town.tagline}. Call (978) 888-7649.`}
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container">
+      <div class="hero__content">
+        <span class="hero__badge">{town.name}, Massachusetts</span>
+        <h1>{town.name} Real Estate</h1>
+        <p class="hero__tagline">{town.tagline}</p>
+        <p class="hero__subtitle">{town.heroDescription}</p>
+        <div class="hero__ctas">
+          <a href="/sell" class="btn btn--primary btn--large">
+            Sell Your {town.name} Home
+          </a>
+          <a href="/contact" class="btn btn--white">Let's Talk</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market Stats -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stats__item">
+          <span class="stats__number">{town.marketStats.avgPrice}</span>
+          <span class="stats__label">Avg. Home Price</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">{town.marketStats.avgDaysOnMarket}</span>
+          <span class="stats__label">Avg. Days on Market</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">{town.marketStats.schoolRating}</span>
+          <span class="stats__label">School Rating</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="section overview">
+    <div class="container container--narrow">
+      <h2>About {town.name}</h2>
+      <p class="overview__text">{town.overview}</p>
+    </div>
+  </section>
+
+  <!-- Highlights Section -->
+  <section class="section section--light highlights">
+    <div class="container">
+      <div class="section__header">
+        <h2>What Makes {town.name} Special</h2>
+        <p class="section__subtitle">Discover what attracts families to {town.name}</p>
+      </div>
+
+      <div class="highlights__grid">
+        {town.highlights.map(highlight => (
+          <div class="highlight-card">
+            <div class="highlight-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3>{highlight.title}</h3>
+            <p>{highlight.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Neighborhoods Section -->
+  <section class="section neighborhoods">
+    <div class="container">
+      <div class="neighborhoods__grid">
+        <div class="neighborhoods__content">
+          <h2>{town.name} Neighborhoods</h2>
+          <p>
+            {town.name} features several distinct neighborhoods, each with its own character
+            and appeal. Whether you're looking for a walkable area near shops and restaurants
+            or a quiet street with larger lots, there's a neighborhood for you.
+          </p>
+          <ul class="neighborhoods__list">
+            {town.neighborhoods.map(neighborhood => (
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                {neighborhood}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="neighborhoods__nearby">
+          <h3>Nearby Communities</h3>
+          <p>Also consider these neighboring towns:</p>
+          <div class="neighborhoods__nearby-list">
+            {town.nearbyTowns.map(nearbyTown => (
+              <a href={`/areas/${nearbyTown.toLowerCase()}`} class="nearby-link">
+                {nearbyTown}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section--dark cta">
+    <div class="container">
+      <div class="cta__content">
+        <h2>Ready to Buy or Sell in {town.name}?</h2>
+        <p class="cta__text">
+          As your local {town.name} real estate expert, I'll help you navigate the market
+          and achieve your goals. Let's start with a conversation about what you're looking for.
+        </p>
+        <div class="cta__buttons">
+          <a href="/sell" class="btn btn--primary btn--large">Get Your Free Home Valuation</a>
+          <a href="tel:9788887649" class="btn btn--white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Call (978) 888-7649
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-3xl) 0;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero__content {
+    position: relative;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero__badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(201, 162, 39, 0.2);
+    color: var(--color-accent-light);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .hero__tagline {
+    font-size: 1.25rem;
+    color: var(--color-accent-light);
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero__subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .hero__ctas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  /* Stats Section */
+  .stats {
+    background-color: var(--color-white);
+    padding: var(--spacing-2xl) 0;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: var(--spacing-xl);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .stats__item {
+    text-align: center;
+  }
+
+  .stats__number {
+    display: block;
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .stats__label {
+    font-size: 0.875rem;
+    color: var(--color-gray);
+    font-weight: 500;
+  }
+
+  /* Overview Section */
+  .overview__text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-dark-gray);
+  }
+
+  /* Highlights Section */
+  .highlights__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .highlight-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .highlight-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .highlight-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .highlight-card p {
+    color: var(--color-gray);
+    font-size: 0.9375rem;
+    margin-bottom: 0;
+  }
+
+  /* Neighborhoods Section */
+  .neighborhoods__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: start;
+  }
+
+  .neighborhoods__content p {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .neighborhoods__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .neighborhoods__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+
+  .neighborhoods__list svg {
+    color: var(--color-accent);
+  }
+
+  .neighborhoods__nearby {
+    background-color: var(--color-off-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  .neighborhoods__nearby h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .neighborhoods__nearby > p {
+    color: var(--color-gray);
+    font-size: 0.9375rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .neighborhoods__nearby-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .nearby-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm);
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+  }
+
+  .nearby-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  /* CTA Section */
+  .cta__content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta__text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .cta__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .highlights__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .neighborhoods__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .neighborhoods__list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .stats__grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .hero__ctas {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta__buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
