@@ -8,11 +8,16 @@ const lastUpdated = "January 2026";
   title="Privacy Policy"
   description="Privacy Policy for AllisonMurrayRealtor.com. Learn how we collect, use, and protect your personal information."
 >
+  <section class="legal-hero">
+    <div class="container container--narrow">
+      <span class="eyebrow">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="legal-hero__updated">Last Updated: {lastUpdated}</p>
+    </div>
+  </section>
+
   <section class="section legal">
     <div class="container container--narrow">
-      <h1>Privacy Policy</h1>
-      <p class="legal__updated">Last Updated: {lastUpdated}</p>
-
       <div class="legal__content">
         <h2>Introduction</h2>
         <p>
@@ -136,20 +141,33 @@ const lastUpdated = "January 2026";
 </BaseLayout>
 
 <style>
-  .legal {
-    padding-top: var(--spacing-2xl);
+  .legal-hero {
+    background-color: var(--ink);
+    color: var(--paper);
+    padding: calc(var(--header-height) + 4rem) 0 3.5rem;
   }
 
-  .legal h1 {
+  .legal-hero h1 {
+    color: var(--paper);
     margin-bottom: var(--spacing-xs);
   }
 
-  .legal__updated {
-    color: var(--color-gray);
+  .legal-hero .eyebrow {
+    color: var(--bronze-pale);
+  }
+
+  .legal-hero .eyebrow::before {
+    background-color: var(--bronze-pale);
+  }
+
+  .legal-hero__updated {
+    color: rgba(250, 248, 244, 0.6);
     font-size: 0.9375rem;
-    margin-bottom: var(--spacing-2xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--color-light-gray);
+    margin-bottom: 0;
+  }
+
+  .legal {
+    padding-top: var(--spacing-2xl);
   }
 
   .legal__content h2 {

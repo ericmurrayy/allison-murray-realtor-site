@@ -5,231 +5,187 @@ const testimonials = [
   {
     quote: "Allison sold our Wellesley home for $87,000 OVER asking in just 6 days! Her pricing strategy and marketing brought in 12 offers. We couldn't believe it.",
     author: "The Richardson Family",
-    location: "Wellesley, MA",
+    location: "Sold in Wellesley, MA",
     result: "$87K over asking"
   },
   {
     quote: "In this competitive market, Allison got our offer accepted on the first home we loved. Her negotiation saved us $40K and we closed in 30 days.",
     author: "Sarah & David M.",
-    location: "Newton, MA",
-    result: "Won in bidding war"
+    location: "Bought in Newton, MA",
+    result: "Won in a bidding war"
   },
   {
     quote: "We interviewed 5 agents. Allison was the only one who gave us honest feedback about pricing. She was right—we sold for $52K more than the others suggested.",
     author: "The Chen Family",
-    location: "Lexington, MA",
+    location: "Sold in Lexington, MA",
     result: "$52K more than expected"
   }
 ];
 
 const stats = [
-  { number: "100+", label: "Homes Sold" },
-  { number: "$50M+", label: "In Sales Volume" },
-  { number: "15+", label: "Years Experience" },
-  { number: "5★", label: "Client Rating" }
+  { value: 100, suffix: "+", label: "Homes Sold" },
+  { value: 50, prefix: "$", suffix: "M+", label: "In Sales Volume" },
+  { value: 15, suffix: "+", label: "Years of Experience" },
+  { value: 5, suffix: ".0", label: "Client Rating" }
 ];
 
 const serviceAreas = [
-  { name: "Wellesley", slug: "wellesley", description: "Premier suburban living with top-rated schools" },
-  { name: "Weston", slug: "weston", description: "Exclusive estates and natural beauty" },
-  { name: "Newton", slug: "newton", description: "Village charm meets urban convenience" },
-  { name: "Lexington", slug: "lexington", description: "Historic character with modern amenities" },
-  { name: "Needham", slug: "needham", description: "Family-friendly with excellent community" },
-  { name: "Natick", slug: "natick", description: "Growing hub with great accessibility" },
+  { name: "Wellesley", slug: "wellesley", image: "/images/town-wellesley.jpg", description: "Premier suburban living with top-rated schools" },
+  { name: "Weston", slug: "weston", image: "/images/town-weston.jpg", description: "Exclusive estates and natural beauty" },
+  { name: "Newton", slug: "newton", image: "/images/town-newton.jpg", description: "Village charm meets urban convenience" },
+  { name: "Lexington", slug: "lexington", image: "/images/town-lexington.jpg", description: "Historic character with modern amenities" },
+  { name: "Needham", slug: "needham", image: "/images/town-needham.jpg", description: "Family-friendly with excellent community" },
+  { name: "Natick", slug: "natick", image: "/images/town-natick.jpg", description: "Growing hub with great accessibility" },
+];
+
+const process = [
+  { number: "01", title: "Strategy & Pricing", description: "A data-driven market analysis and pricing strategy built around your home, your timeline, and your goals." },
+  { number: "02", title: "Preparation & Marketing", description: "Staging guidance, professional photography, and targeted digital marketing that makes your home impossible to miss." },
+  { number: "03", title: "Negotiation & Close", description: "Skilled negotiation through offers, inspection, and appraisal — protecting every dollar to the closing table." },
 ];
 ---
 
 <BaseLayout
-  title="Your Trusted Greater Boston Realtor"
+  title="Greater Boston & MetroWest Real Estate"
   description="Allison Murray helps homeowners sell for top dollar and buyers find their dream homes in Wellesley, Newton, Weston, Lexington, Needham, Natick & Waltham MA."
 >
-  <!-- Urgency Banner -->
-  <div class="urgency-banner">
-    <div class="container">
-      <p class="urgency-banner__text">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-          <line x1="12" y1="9" x2="12" y2="13"></line>
-          <line x1="12" y1="17" x2="12.01" y2="17"></line>
-        </svg>
-        <strong>Spring Market Alert:</strong> Buyer demand is UP 23% in Greater Boston. Now is the time to list!
-        <a href="/sell" class="urgency-banner__link">Get your free valuation →</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero__bg"></div>
-    <div class="container">
+    <div class="hero__media">
+      <img src="/images/hero-home.jpg" alt="A classic New England home with a wraparound porch" fetchpriority="high" />
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="container hero__container">
       <div class="hero__content">
-        <span class="hero__badge">Trusted Local Expert</span>
+        <span class="hero__eyebrow">Wellesley &middot; Weston &middot; Newton &middot; Greater Boston</span>
         <h1 class="hero__title">
-          Sell Your Home for<br />
-          <span class="hero__highlight">Top Dollar</span>
+          Selling homes is my craft.<br />
+          <em>Your move is my mission.</em>
         </h1>
         <p class="hero__subtitle">
-          With deep expertise in Greater Boston's most sought-after communities,
-          I help homeowners maximize their sale price while making the process smooth and stress-free.
+          Allison Murray pairs deep MetroWest expertise with concierge-level
+          service — helping sellers command top dollar and buyers win the
+          homes they love.
         </p>
         <div class="hero__ctas">
-          <a href="/sell" class="btn btn--primary btn--large">
-            Get Your Free Home Valuation
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-          <a href="/contact" class="btn btn--white">Let's Talk</a>
-        </div>
-        <div class="hero__trust">
-          <div class="hero__trust-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <span>No Obligation</span>
-          </div>
-          <div class="hero__trust-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <span>Free Market Analysis</span>
-          </div>
-          <div class="hero__trust-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <span>Local Expert</span>
-          </div>
+          <a href="/sell" class="btn btn--primary btn--large">What's Your Home Worth?</a>
+          <a href="/areas" class="btn btn--ghost btn--large">Explore Communities</a>
         </div>
       </div>
     </div>
+    <a href="#stats" class="hero__scroll" aria-label="Scroll to content">
+      <span></span>
+    </a>
   </section>
 
-  <!-- Stats Section -->
-  <section class="stats">
+  <!-- Stats -->
+  <section class="stats" id="stats">
     <div class="container">
-      <div class="stats__grid animate-stagger">
+      <div class="stats__grid">
         {stats.map(stat => (
           <div class="stats__item">
-            <span class="stats__number">{stat.number}</span>
+            <span
+              class="stats__number"
+              data-count={stat.value}
+              data-prefix={stat.prefix || ''}
+              data-suffix={stat.suffix || ''}
+            >{(stat.prefix || '') + stat.value + (stat.suffix || '')}</span>
             <span class="stats__label">{stat.label}</span>
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- Trust Badges -->
-  <section class="trust-badges">
-    <div class="container">
-      <div class="trust-badges__content animate-fade">
-        <span class="trust-badges__label">Trusted &amp; Certified</span>
-        <div class="trust-badges__list">
-          <div class="trust-badges__item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 12 15 15 9"></polyline></svg>
-            <span>Licensed MA Agent</span>
-          </div>
-          <div class="trust-badges__item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-            <span>NAR Member</span>
-          </div>
-          <div class="trust-badges__item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <span>5-Star Rated</span>
-          </div>
-          <div class="trust-badges__item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span>100+ Homes Sold</span>
-          </div>
-        </div>
+      <div class="stats__credentials">
+        <span>Licensed MA Real Estate Agent</span>
+        <span class="stats__dot" aria-hidden="true"></span>
+        <span>Chinatti Realty Group</span>
+        <span class="stats__dot" aria-hidden="true"></span>
+        <span>REALTOR&reg; &middot; NAR Member</span>
+        <span class="stats__dot" aria-hidden="true"></span>
+        <span>Equal Housing Opportunity</span>
       </div>
     </div>
   </section>
 
-  <!-- Value Proposition -->
-  <section class="section value-prop">
+  <!-- Dual pathways -->
+  <section class="paths">
+    <a href="/sell" class="paths__panel">
+      <img src="/images/hero-sell.jpg" alt="A warmly lit home at dusk" loading="lazy" />
+      <div class="paths__overlay"></div>
+      <div class="paths__content">
+        <span class="paths__eyebrow">For Sellers</span>
+        <h2 class="paths__title">Sell for Top Dollar</h2>
+        <p class="paths__text">Strategic pricing, striking marketing, and expert negotiation — discover what your home could sell for in today's market.</p>
+        <span class="paths__link">
+          Get Your Free Valuation
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+    </a>
+    <a href="/buy" class="paths__panel">
+      <img src="/images/hero-buy.jpg" alt="A sunny neighborhood street with classic homes" loading="lazy" />
+      <div class="paths__overlay"></div>
+      <div class="paths__content">
+        <span class="paths__eyebrow">For Buyers</span>
+        <h2 class="paths__title">Find Your Next Home</h2>
+        <p class="paths__text">From first showings to winning offers — navigate Greater Boston's competitive market with a local expert at your side.</p>
+        <span class="paths__link">
+          Start Your Search
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+    </a>
+  </section>
+
+  <!-- Meet Allison -->
+  <section class="section section--white meet">
     <div class="container">
-      <div class="value-prop__grid">
-        <div class="value-prop__content animate-slide-left">
-          <h2>Why Sellers Choose Allison</h2>
-          <p class="value-prop__intro">
-            Selling your home is one of the biggest financial decisions you'll make.
-            You deserve an agent who treats it that way.
-          </p>
-
-          <div class="value-prop__features">
-            <div class="value-prop__feature">
-              <div class="value-prop__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="12" y1="1" x2="12" y2="23"></line>
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-              </div>
-              <div>
-                <h4>Maximize Your Sale Price</h4>
-                <p>Strategic pricing and expert negotiation to ensure you get every dollar your home deserves.</p>
-              </div>
-            </div>
-
-            <div class="value-prop__feature">
-              <div class="value-prop__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                </svg>
-              </div>
-              <div>
-                <h4>Professional Marketing</h4>
-                <p>Stunning photography, virtual tours, and targeted marketing that showcases your home beautifully.</p>
-              </div>
-            </div>
-
-            <div class="value-prop__feature">
-              <div class="value-prop__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-              </div>
-              <div>
-                <h4>Stress-Free Process</h4>
-                <p>I handle every detail so you can focus on what's next. Clear communication every step of the way.</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="/sell" class="btn btn--primary">
-            Get Started Today
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-
-        <div class="value-prop__image animate-slide-right">
-          <div class="value-prop__image-wrapper">
+      <div class="meet__grid">
+        <div class="meet__image animate-slide-left">
+          <div class="meet__image-frame">
             <img
               src="/allison-headshot.jpg"
-              alt="Allison Murray - Greater Boston Realtor"
-              class="value-prop__img"
+              alt="Allison Murray, Greater Boston Realtor"
               loading="lazy"
               onerror="this.src='/headshot-placeholder.svg'"
             />
           </div>
         </div>
+        <div class="meet__content animate-slide-right">
+          <span class="eyebrow">Meet Allison</span>
+          <h2>A neighbor first.<br /><em class="accent-italic">An expert always.</em></h2>
+          <p class="meet__lead">
+            I grew up in the Boston area and know these neighborhoods inside
+            and out — the streets, the schools, the markets, and what it
+            actually takes to win here.
+          </p>
+          <p>
+            Real estate isn't just my career, it's my passion. There's nothing
+            more rewarding than handing keys to a family who just found their
+            forever home, or seeing the relief on a seller's face when we
+            close above asking. When you work with me, you get a dedicated
+            partner who treats your move like it's her own.
+          </p>
+          <blockquote class="meet__quote">
+            &ldquo;Every home has a story. My job is to make sure yours ends
+            with the best possible next chapter.&rdquo;
+          </blockquote>
+          <div class="meet__ctas">
+            <a href="/about" class="btn btn--dark">More About Allison</a>
+            <a href="/contact" class="text-link">
+              Let's Talk
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Personal Introduction Section -->
+  <!-- Video introduction -->
   <section class="section section--light intro">
     <div class="container">
       <div class="intro__grid">
-        <div class="intro__video">
+        <div class="intro__video animate-fade">
           <div class="intro__video-wrapper">
             <iframe
               src="https://www.youtube.com/embed/YFPxgPTD2Fk?rel=0&modestbranding=1&playsinline=1&autoplay=0"
@@ -241,110 +197,184 @@ const serviceAreas = [
           </div>
         </div>
         <div class="intro__content animate-slide-right">
-          <span class="intro__badge">A Personal Note</span>
-          <h2>Hi, I'm Allison!</h2>
+          <span class="eyebrow">A Personal Note</span>
+          <h2>Hi, I'm Allison</h2>
           <p class="intro__lead">
-            Real estate isn't just my career—it's my passion. There's nothing more rewarding than
-            handing keys to a family who just found their forever home, or seeing the relief on a
-            seller's face when we close above asking.
+            Before we ever talk numbers, I'd love for you to know who you'll
+            be working with. Take a minute to say hello — then let's talk
+            about your goals.
           </p>
           <p>
-            I grew up in the Boston area and know these neighborhoods inside and out. When you
-            work with me, you're not just getting an agent—you're getting a neighbor who genuinely
-            cares about your success.
-          </p>
-          <p class="intro__highlight">
-            <strong>Let's chat!</strong> I'd love to hear your story and see how I can help.
+            Whether you're three weeks or three years from making a move,
+            I'm happy to be a resource. No pressure, no obligation — just
+            honest local advice.
           </p>
           <div class="intro__ctas">
-            <a href="/contact" class="btn btn--primary">Let's Talk</a>
-            <a href="/about" class="btn btn--secondary">Learn More About Me</a>
+            <a href="/contact" class="btn btn--primary">Say Hello</a>
+            <a href="tel:9788887649" class="btn btn--secondary">Call (978) 888-7649</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Service Areas -->
-  <section class="section section--light areas">
+  <!-- Process -->
+  <section class="section section--dark process">
     <div class="container">
       <div class="section__header animate-on-scroll">
-        <h2>Serving Greater Boston's Premier Communities</h2>
-        <p class="section__subtitle">
-          Deep local knowledge in the neighborhoods you care about most
-        </p>
+        <span class="eyebrow eyebrow--center">The Approach</span>
+        <h2>Top dollar isn't luck.<br />It's a process.</h2>
+      </div>
+      <div class="process__grid animate-stagger">
+        {process.map(step => (
+          <div class="process__step">
+            <span class="process__number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+      <div class="process__cta animate-fade">
+        <a href="/sell" class="btn btn--primary btn--large">See the Full Selling Process</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Communities -->
+  <section class="section areas">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <span class="eyebrow eyebrow--center">Where I Work</span>
+        <h2>Greater Boston's most<br /><em class="accent-italic">sought-after communities</em></h2>
       </div>
 
       <div class="areas__grid animate-stagger">
         {serviceAreas.map(area => (
           <a href={`/areas/${area.slug}`} class="areas__card">
-            <h3 class="areas__name">{area.name}</h3>
-            <p class="areas__description">{area.description}</p>
-            <span class="areas__link">
-              Explore {area.name}
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </a>
-        ))}
-      </div>
-
-      <div class="areas__cta">
-        <p>Also serving <a href="/areas/waltham">Waltham</a> and surrounding areas</p>
-        <a href="/areas" class="btn btn--secondary">View All Areas</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="section testimonials">
-    <div class="container">
-      <div class="section__header animate-on-scroll">
-        <h2>What My Clients Say</h2>
-        <p class="section__subtitle">
-          Real results for real families in your neighborhood
-        </p>
-      </div>
-
-      <div class="testimonials__grid animate-stagger">
-        {testimonials.map(testimonial => (
-          <div class="testimonials__card">
-            <span class="testimonials__result">{testimonial.result}</span>
-            <svg class="testimonials__quote" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.768-.695-1.327-.825-.55-.13-1.07-.14-1.54-.03-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l-.007.003z"/>
-            </svg>
-            <p class="testimonials__text">{testimonial.quote}</p>
-            <div class="testimonials__author">
-              <span class="testimonials__name">{testimonial.author}</span>
-              <span class="testimonials__location">{testimonial.location}</span>
+            <div class="areas__image">
+              <img src={area.image} alt={`Homes in ${area.name}, Massachusetts`} loading="lazy" />
             </div>
-          </div>
+            <div class="areas__overlay"></div>
+            <div class="areas__body">
+              <h3 class="areas__name">{area.name}</h3>
+              <p class="areas__description">{area.description}</p>
+              <span class="areas__link">
+                Explore
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
+            </div>
+          </a>
         ))}
+      </div>
+
+      <div class="areas__more animate-fade">
+        <p>Also serving <a href="/areas/waltham">Waltham</a> and surrounding towns</p>
+        <a href="/areas" class="text-link">
+          View All Communities
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="section section--dark cta">
-    <div class="container">
-      <div class="cta__content">
-        <h2>Ready to Sell Your Home?</h2>
-        <p class="cta__text">
-          Get a free, no-obligation home valuation and discover what your property
-          is worth in today's market.
+  <!-- Testimonials carousel -->
+  <section class="section section--white testimonials">
+    <div class="container container--narrow">
+      <div class="section__header animate-on-scroll">
+        <span class="eyebrow eyebrow--center">Client Stories</span>
+        <h2>Results that speak<br /><em class="accent-italic">for themselves</em></h2>
+      </div>
+
+      <div class="carousel animate-fade" data-carousel>
+        <div class="carousel__track">
+          {testimonials.map((t, i) => (
+            <figure class:list={['carousel__slide', { 'is-active': i === 0 }]} data-slide={i}>
+              <div class="carousel__stars" aria-label="5 star review">
+                {Array.from({ length: 5 }).map(() => (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                ))}
+              </div>
+              <blockquote class="carousel__quote">&ldquo;{t.quote}&rdquo;</blockquote>
+              <figcaption class="carousel__author">
+                <span class="carousel__name">{t.author}</span>
+                <span class="carousel__meta">{t.location} &middot; {t.result}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div class="carousel__controls">
+          <button class="carousel__arrow" data-prev aria-label="Previous testimonial">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          </button>
+          <div class="carousel__dots">
+            {testimonials.map((_, i) => (
+              <button class:list={['carousel__dot', { 'is-active': i === 0 }]} data-dot={i} aria-label={`Go to testimonial ${i + 1}`}></button>
+            ))}
+          </div>
+          <button class="carousel__arrow" data-next aria-label="Next testimonial">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+        <div class="carousel__footer">
+          <a href="/reviews" class="text-link">
+            Read All Reviews
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work with Allison — final CTA + form -->
+  <section class="connect" id="connect">
+    <div class="connect__media">
+      <img src="/images/autumn-lake.jpg" alt="New England fall foliage reflected in a lake" loading="lazy" />
+    </div>
+    <div class="connect__scrim"></div>
+    <div class="container connect__container">
+      <div class="connect__content animate-slide-left">
+        <span class="eyebrow">Work With Allison</span>
+        <h2>Let's talk about<br /><em class="accent-italic">your next move</em></h2>
+        <p class="connect__text">
+          Whether you're selling, buying, or simply curious about the market,
+          the first conversation is free — and always pressure-free.
         </p>
-        <div class="cta__buttons">
-          <a href="/sell" class="btn btn--primary btn--large">
-            Get Your Free Home Valuation
-          </a>
-          <a href="tel:9788887649" class="btn btn--white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            Call (978) 888-7649
-          </a>
+        <a href="tel:9788887649" class="connect__phone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          (978) 888-7649
+        </a>
+      </div>
+      <div class="connect__form-wrapper animate-slide-right">
+        <div class="connect__form form-card">
+          <h3>Send a Message</h3>
+          <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <input type="hidden" name="_subject" value="New Contact from AllisonMurrayRealtor.com (Homepage)" />
+            <input type="hidden" name="_next" value="/contact?success=true" />
+            <input type="hidden" name="form_type" value="homepage_contact" />
+            <div class="form__group">
+              <label for="hc-name">Name</label>
+              <input type="text" id="hc-name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="hc-email">Email</label>
+                <input type="email" id="hc-email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form__group">
+                <label for="hc-phone">Phone</label>
+                <input type="tel" id="hc-phone" name="phone" placeholder="(555) 123-4567" />
+              </div>
+            </div>
+            <div class="form__group">
+              <label for="hc-message">How can I help?</label>
+              <textarea id="hc-message" name="message" rows="3" placeholder="I'm thinking about selling my home in..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--large connect__submit">Send Message</button>
+            <p class="form__disclaimer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              Your information is secure and never shared. By submitting, you agree to be contacted about your inquiry.
+            </p>
+          </form>
         </div>
       </div>
     </div>
@@ -352,275 +382,346 @@ const serviceAreas = [
 </BaseLayout>
 
 <style>
-  /* Urgency Banner */
-  .urgency-banner {
-    background: linear-gradient(90deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
-    color: var(--color-white);
-    padding: 0.75rem 0;
-  }
-
-  .urgency-banner__text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    font-size: 0.9375rem;
-    margin: 0;
-    text-align: center;
-  }
-
-  .urgency-banner__text svg {
-    color: var(--color-accent);
-    flex-shrink: 0;
-  }
-
-  .urgency-banner__link {
-    color: var(--color-accent);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .urgency-banner__link:hover {
-    color: var(--color-accent-light);
-  }
-
-  @media (max-width: 600px) {
-    .urgency-banner__text {
-      font-size: 0.8125rem;
-    }
-  }
-
-  /* Hero Section */
+  /* Hero */
   .hero {
     position: relative;
-    min-height: 85vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: var(--color-white);
+    color: var(--paper);
+    isolation: isolate;
     overflow: hidden;
   }
 
-  .hero__bg {
+  .hero__media {
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: -2;
+  }
+
+  .hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: heroZoom 18s ease-out forwards;
+  }
+
+  @keyframes heroZoom {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__media img { animation: none; }
+  }
+
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to bottom,
+      rgba(22, 19, 15, 0.5) 0%,
+      rgba(22, 19, 15, 0.28) 40%,
+      rgba(22, 19, 15, 0.72) 100%
+    );
   }
 
   .hero__content {
-    position: relative;
-    max-width: 700px;
-    padding: var(--spacing-3xl) 0;
+    max-width: 780px;
+    padding: calc(var(--header-height) + 2rem) 0 5rem;
   }
 
-  .hero__badge {
+  .hero__eyebrow {
     display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(201, 162, 39, 0.2);
-    color: var(--color-accent-light);
-    font-size: 0.875rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: var(--radius-xl);
+    letter-spacing: 0.3em;
+    color: var(--bronze-pale);
     margin-bottom: var(--spacing-md);
+    animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
   }
 
   .hero__title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    color: var(--color-white);
+    color: var(--paper);
     margin-bottom: var(--spacing-md);
-    line-height: 1.1;
+    animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
   }
 
-  .hero__highlight {
-    color: var(--color-accent);
+  .hero__title em {
+    color: var(--bronze-pale);
   }
 
   .hero__subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.7;
+    font-size: 1.1875rem;
+    line-height: 1.8;
+    color: rgba(250, 248, 244, 0.88);
+    max-width: 560px;
     margin-bottom: var(--spacing-xl);
+    animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
   }
 
   .hero__ctas {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-xl);
+    animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
   }
 
-  .hero__trust {
+  .hero__scroll {
+    position: absolute;
+    bottom: 2.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 42px;
+    border: 1.5px solid rgba(250, 248, 244, 0.5);
+    border-radius: 13px;
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-lg);
-  }
-
-  .hero__trust-item {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    font-size: 0.9375rem;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .hero__trust-item svg {
-    color: var(--color-accent);
-  }
-
-  /* Stats Section */
-  .stats {
-    background-color: var(--color-white);
-    padding: var(--spacing-2xl) 0;
-    margin-top: -60px;
-    position: relative;
-    z-index: 10;
-  }
-
-  /* Trust Badges */
-  .trust-badges {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--color-off-white);
-    border-top: 1px solid var(--color-light-gray);
-    border-bottom: 1px solid var(--color-light-gray);
-  }
-
-  .trust-badges__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-md);
-  }
-
-  .trust-badges__label {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-gray);
-  }
-
-  .trust-badges__list {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: var(--spacing-lg);
+    padding-top: 8px;
+    animation: revealFade 1s ease 1.2s both;
   }
 
-  .trust-badges__item {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    color: var(--color-primary);
-    font-weight: 500;
+  .hero__scroll span {
+    width: 2px;
+    height: 8px;
+    background-color: rgba(250, 248, 244, 0.8);
+    border-radius: 1px;
+    animation: scrollHint 2s ease-in-out infinite;
   }
 
-  .trust-badges__item svg {
-    color: var(--color-accent);
+  @keyframes scrollHint {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(10px); opacity: 0.3; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__eyebrow, .hero__title, .hero__subtitle, .hero__ctas, .hero__scroll {
+      animation: none;
+    }
+    .hero__scroll span { animation: none; }
+  }
+
+  /* Stats */
+  .stats {
+    background-color: var(--paper);
+    padding: var(--spacing-2xl) 0 var(--spacing-xl);
+    border-bottom: 1px solid var(--hairline);
   }
 
   .stats__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-lg);
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
-    padding: var(--spacing-xl);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
   }
 
   .stats__item {
-    text-align: center;
     padding: var(--spacing-sm);
+    position: relative;
+  }
+
+  .stats__item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: calc(var(--spacing-lg) / -2);
+    top: 50%;
+    transform: translateY(-50%);
+    height: 56px;
+    width: 1px;
+    background-color: var(--hairline);
   }
 
   .stats__number {
     display: block;
-    font-family: var(--font-primary);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 5vw, 3.75rem);
+    font-weight: 500;
+    color: var(--ink);
     line-height: 1;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 0.5rem;
+    font-variant-numeric: tabular-nums;
   }
 
   .stats__label {
-    font-size: 0.9375rem;
-    color: var(--color-gray);
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
   }
 
-  /* Value Proposition */
-  .value-prop__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
-    align-items: center;
-  }
-
-  .value-prop__intro {
-    font-size: 1.125rem;
-    color: var(--color-gray);
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .value-prop__features {
+  .stats__credentials {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .value-prop__feature {
-    display: flex;
-    gap: var(--spacing-md);
-  }
-
-  .value-prop__icon {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-accent);
-    color: var(--color-white);
-    border-radius: var(--radius-md);
+    gap: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-mute);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--hairline);
   }
 
-  .value-prop__feature h4 {
-    margin-bottom: var(--spacing-xs);
-    font-family: var(--font-secondary);
-    font-size: 1.125rem;
+  .stats__dot {
+    width: 3px;
+    height: 3px;
+    background-color: var(--bronze);
+    border-radius: 50%;
   }
 
-  .value-prop__feature p {
-    color: var(--color-gray);
-    margin-bottom: 0;
+  /* Dual pathways */
+  .paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .value-prop__image-wrapper {
-    aspect-ratio: 4/5;
-    border-radius: var(--radius-lg);
+  .paths__panel {
+    position: relative;
+    min-height: 540px;
+    display: flex;
+    align-items: flex-end;
+    isolation: isolate;
     overflow: hidden;
-    box-shadow: var(--shadow-xl);
   }
 
-  .value-prop__img {
+  .paths__panel img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .paths__panel:hover img {
+    transform: scale(1.05);
+  }
+
+  .paths__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to top, rgba(22, 19, 15, 0.82) 0%, rgba(22, 19, 15, 0.28) 55%, rgba(22, 19, 15, 0.1) 100%);
+    transition: background-color var(--transition-slow);
+  }
+
+  .paths__content {
+    padding: clamp(2rem, 5vw, 3.5rem);
+    color: var(--paper);
+    max-width: 520px;
+  }
+
+  .paths__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--bronze-pale);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .paths__title {
+    color: var(--paper);
+    font-size: clamp(1.875rem, 3.5vw, 2.625rem);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .paths__text {
+    font-size: 0.9875rem;
+    line-height: 1.75;
+    color: rgba(250, 248, 244, 0.82);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .paths__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--paper);
+    border-bottom: 1px solid var(--bronze-pale);
+    padding-bottom: 0.375rem;
+  }
+
+  .paths__link svg {
+    transition: transform var(--transition-base);
+  }
+
+  .paths__panel:hover .paths__link svg {
+    transform: translateX(5px);
+  }
+
+  /* Meet Allison */
+  .meet__grid {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+    align-items: center;
+  }
+
+  .meet__image-frame {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+
+  .meet__image-frame::before {
+    content: '';
+    position: absolute;
+    inset: 1.25rem -1.25rem -1.25rem 1.25rem;
+    border: 1px solid var(--bronze-pale);
+    z-index: -1;
+  }
+
+  .meet__image-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center top;
   }
 
-  /* Personal Introduction Section */
+  .meet__lead {
+    font-size: 1.1875rem;
+    line-height: 1.8;
+    color: var(--ink);
+  }
+
+  .meet__quote {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--ink);
+    border-left: 2px solid var(--bronze);
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+  }
+
+  .meet__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  /* Video intro */
   .intro__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
+    grid-template-columns: 2fr 3fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
     align-items: center;
   }
 
@@ -630,8 +731,8 @@ const serviceAreas = [
     max-width: 320px;
     margin: 0 auto;
     aspect-ratio: 9/16;
-    border-radius: var(--radius-lg);
     overflow: hidden;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
     background: #000;
   }
@@ -642,34 +743,10 @@ const serviceAreas = [
     border: none;
   }
 
-  .intro__badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(201, 162, 39, 0.15);
-    color: var(--color-accent-dark);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: var(--radius-xl);
-    margin-bottom: var(--spacing-md);
-  }
-
   .intro__lead {
-    font-size: 1.125rem;
-    color: var(--color-dark-gray);
-    line-height: 1.7;
-  }
-
-  .intro__content p {
-    margin-bottom: var(--spacing-md);
-  }
-
-  .intro__highlight {
-    background: var(--color-off-white);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    border-left: 4px solid var(--color-accent);
+    font-size: 1.1875rem;
+    line-height: 1.8;
+    color: var(--ink);
   }
 
   .intro__ctas {
@@ -679,232 +756,451 @@ const serviceAreas = [
     margin-top: var(--spacing-lg);
   }
 
-  @media (max-width: 900px) {
-    .intro__grid {
-      grid-template-columns: 1fr;
-    }
-
-    .intro__video {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .intro__content {
-      text-align: center;
-    }
-
-    .intro__ctas {
-      justify-content: center;
-    }
+  /* Process */
+  .process__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    margin-bottom: var(--spacing-2xl);
   }
 
-  /* Service Areas */
+  .process__step {
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--hairline-light);
+  }
+
+  .process__number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--bronze-pale);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .process__step h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .process__step p {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: rgba(250, 248, 244, 0.65);
+    margin-bottom: 0;
+  }
+
+  .process__cta {
+    text-align: center;
+  }
+
+  /* Communities */
   .areas__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     margin-bottom: var(--spacing-2xl);
   }
 
   .areas__card {
-    display: block;
-    background-color: var(--color-white);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-base);
-    border: 1px solid var(--color-light-gray);
-    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    aspect-ratio: 4/5;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: var(--radius-md);
   }
 
-  .areas__card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-accent);
+  .areas__image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .areas__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .areas__card:hover .areas__image img {
+    transform: scale(1.06);
+  }
+
+  .areas__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to top, rgba(22, 19, 15, 0.85) 0%, rgba(22, 19, 15, 0.25) 50%, rgba(22, 19, 15, 0.08) 100%);
+  }
+
+  .areas__body {
+    padding: var(--spacing-lg);
+    color: var(--paper);
+    width: 100%;
   }
 
   .areas__name {
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-xs);
+    color: var(--paper);
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
   }
 
   .areas__description {
-    color: var(--color-gray);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
+    color: rgba(250, 248, 244, 0.78);
     margin-bottom: var(--spacing-sm);
   }
 
   .areas__link {
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
-    font-weight: 600;
-    font-size: 0.9375rem;
-    color: var(--color-accent);
-  }
-
-  .areas__link:hover {
-    color: var(--color-accent-dark);
-  }
-
-  .areas__cta {
-    text-align: center;
-  }
-
-  .areas__cta p {
-    color: var(--color-gray);
-    margin-bottom: var(--spacing-sm);
-  }
-
-  /* Testimonials */
-  .testimonials__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-  }
-
-  .testimonials__card {
-    background-color: var(--color-off-white);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    position: relative;
-  }
-
-  .testimonials__result {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
-    color: var(--color-white);
+    gap: 0.5rem;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.375rem 0.75rem;
-    border-radius: var(--radius-xl);
-    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.18em;
+    color: var(--bronze-pale);
   }
 
-  .testimonials__quote {
-    color: var(--color-accent);
-    opacity: 0.3;
-    margin-bottom: var(--spacing-sm);
+  .areas__link svg {
+    transition: transform var(--transition-base);
   }
 
-  .testimonials__text {
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: var(--color-dark-gray);
-    margin-bottom: var(--spacing-md);
-    font-style: italic;
+  .areas__card:hover .areas__link svg {
+    transform: translateX(4px);
   }
 
-  .testimonials__author {
+  .areas__more {
     display: flex;
     flex-direction: column;
-  }
-
-  .testimonials__name {
-    font-weight: 600;
-    color: var(--color-primary);
-  }
-
-  .testimonials__location {
-    font-size: 0.875rem;
-    color: var(--color-gray);
-  }
-
-  /* CTA Section */
-  .cta__content {
+    align-items: center;
+    gap: var(--spacing-sm);
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
   }
 
-  .cta__text {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: var(--spacing-xl);
+  .areas__more p {
+    color: var(--ink-mute);
+    margin-bottom: 0;
   }
 
-  .cta__buttons {
+  .areas__more p a {
+    color: var(--bronze);
+    border-bottom: 1px solid var(--bronze-pale);
+  }
+
+  /* Testimonials carousel */
+  .carousel {
+    text-align: center;
+  }
+
+  .carousel__track {
+    position: relative;
+    min-height: 320px;
+  }
+
+  .carousel__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.55s ease, transform 0.55s ease, visibility 0.55s;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+  }
+
+  .carousel__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .carousel__stars {
+    display: flex;
+    gap: 4px;
+    color: var(--bronze);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .carousel__quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 2.8vw, 1.875rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 760px;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .carousel__author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .carousel__name {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .carousel__meta {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--bronze);
+  }
+
+  .carousel__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
+
+  .carousel__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--hairline);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .carousel__arrow:hover {
+    border-color: var(--bronze);
+    background-color: var(--bronze);
+    color: var(--white);
+  }
+
+  .carousel__dots {
+    display: flex;
+    gap: 0.625rem;
+  }
+
+  .carousel__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--linen);
+    cursor: pointer;
+    padding: 0;
+    transition: all var(--transition-fast);
+  }
+
+  .carousel__dot.is-active {
+    background-color: var(--bronze);
+    transform: scale(1.35);
+  }
+
+  .carousel__footer {
+    margin-top: var(--spacing-xl);
+  }
+
+  /* Connect (final CTA) */
+  .connect {
+    position: relative;
+    padding: clamp(4.5rem, 9vw, 8.5rem) 0;
+    color: var(--paper);
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .connect__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .connect__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .connect__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(100deg, rgba(22, 19, 15, 0.92) 0%, rgba(22, 19, 15, 0.72) 55%, rgba(22, 19, 15, 0.55) 100%);
+  }
+
+  .connect__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .connect__content h2 {
+    color: var(--paper);
+  }
+
+  .connect__content .eyebrow {
+    color: var(--bronze-pale);
+  }
+
+  .connect__content .eyebrow::before {
+    background-color: var(--bronze-pale);
+  }
+
+  .connect__text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(250, 248, 244, 0.82);
+    max-width: 440px;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .connect__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--paper);
+  }
+
+  .connect__phone:hover {
+    color: var(--bronze-pale);
+  }
+
+  .connect__form {
+    background-color: var(--paper);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    color: var(--ink-soft);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .connect__form h3 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-sm);
   }
 
+  .connect__submit {
+    width: 100%;
+  }
+
   /* Responsive */
-  @media (max-width: 900px) {
-    .hero__content {
-      text-align: center;
-      max-width: 100%;
-    }
-
-    .hero__ctas {
-      justify-content: center;
-    }
-
-    .hero__trust {
-      justify-content: center;
-    }
-
-    .stats__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .value-prop__grid {
+  @media (max-width: 1000px) {
+    .paths {
       grid-template-columns: 1fr;
     }
 
-    .value-prop__content {
-      text-align: center;
+    .paths__panel {
+      min-height: 440px;
     }
 
-    .value-prop__feature {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .value-prop__ctas {
-      justify-content: center;
-    }
-
-    .value-prop__image {
-      order: -1;
-      max-width: 400px;
-      margin: 0 auto;
+    .connect__container {
+      grid-template-columns: 1fr;
     }
 
     .areas__grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    .testimonials__grid {
-      grid-template-columns: 1fr;
-      max-width: 500px;
-      margin: 0 auto;
     }
   }
 
-  @media (max-width: 600px) {
-    .stats__grid {
-      grid-template-columns: repeat(2, 1fr);
-      padding: var(--spacing-md);
+  @media (max-width: 900px) {
+    .meet__grid {
+      grid-template-columns: 1fr;
     }
 
-    .stats__number {
-      font-size: 2rem;
+    .meet__image {
+      max-width: 420px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .intro__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process__grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    .stats__item:not(:last-child)::after {
+      display: none;
     }
 
     .areas__grid {
       grid-template-columns: 1fr;
-      max-width: 400px;
-      margin: 0 auto;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .cta__buttons {
-      flex-direction: column;
-      align-items: center;
+    .carousel__track {
+      min-height: 420px;
+    }
+
+    .form__row {
+      grid-template-columns: 1fr;
+      gap: 0;
     }
   }
 </style>
+
+<script>
+  function initCarousel() {
+    const carousel = document.querySelector('[data-carousel]');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('[data-slide]'));
+    const dots = Array.from(carousel.querySelectorAll('[data-dot]'));
+    const prev = carousel.querySelector('[data-prev]');
+    const next = carousel.querySelector('[data-next]');
+    let current = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const goTo = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+    };
+
+    const restartTimer = () => {
+      if (timer) clearInterval(timer);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        timer = setInterval(() => goTo(current + 1), 7000);
+      }
+    };
+
+    prev?.addEventListener('click', () => { goTo(current - 1); restartTimer(); });
+    next?.addEventListener('click', () => { goTo(current + 1); restartTimer(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); restartTimer(); }));
+
+    restartTimer();
+  }
+
+  initCarousel();
+  document.addEventListener('astro:after-swap', initCarousel);
+</script>
