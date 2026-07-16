@@ -79,9 +79,10 @@ const currentPath = Astro.url.pathname;
     transition: background-color 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
   }
 
+  /* No backdrop-filter here: it would make the header the containing
+     block for the fixed-position mobile menu, collapsing its overlay */
   .header.is-scrolled {
-    background-color: rgba(33, 29, 24, 0.96);
-    backdrop-filter: blur(10px);
+    background-color: rgba(33, 29, 24, 0.98);
     padding: 0.875rem 0;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
   }
