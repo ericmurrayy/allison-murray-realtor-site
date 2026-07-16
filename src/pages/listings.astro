@@ -6,6 +6,7 @@ const recentlySold = [
     address: "Beautiful Colonial",
     location: "Wellesley, MA",
     price: "$1,425,000",
+    image: "/images/town-needham.jpg",
     beds: 4,
     baths: 3.5,
     sqft: "3,200",
@@ -15,6 +16,7 @@ const recentlySold = [
     address: "Charming Cape",
     location: "Newton, MA",
     price: "$985,000",
+    image: "/images/town-lexington.jpg",
     beds: 3,
     baths: 2,
     sqft: "2,100",
@@ -24,6 +26,7 @@ const recentlySold = [
     address: "Modern Ranch",
     location: "Needham, MA",
     price: "$1,150,000",
+    image: "/images/town-wellesley.jpg",
     beds: 4,
     baths: 2.5,
     sqft: "2,800",
@@ -33,11 +36,22 @@ const recentlySold = [
     address: "Victorian Gem",
     location: "Lexington, MA",
     price: "$1,675,000",
+    image: "/images/town-newton.jpg",
     beds: 5,
     baths: 4,
     sqft: "4,100",
     status: "Sold Over Asking"
   }
+];
+
+const areas = [
+  { name: "Wellesley", slug: "wellesley", desc: "Premier suburban living" },
+  { name: "Weston", slug: "weston", desc: "Exclusive estates" },
+  { name: "Newton", slug: "newton", desc: "13 unique villages" },
+  { name: "Lexington", slug: "lexington", desc: "Historic character" },
+  { name: "Needham", slug: "needham", desc: "Family-friendly" },
+  { name: "Natick", slug: "natick", desc: "Growing hub" },
+  { name: "Waltham", slug: "waltham", desc: "Urban energy" },
 ];
 ---
 
@@ -45,179 +59,114 @@ const recentlySold = [
   title="Listings"
   description="View current listings from Allison Murray, Realtor. Homes for sale in Wellesley, Newton, Weston, Lexington, Needham, Natick, and Waltham MA."
 >
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero__bg"></div>
+  <!-- Hero -->
+  <section class="page-hero page-hero--short">
+    <div class="page-hero__media">
+      <img src="/images/hero-sell.jpg" alt="A warmly lit home at dusk" fetchpriority="high" />
+    </div>
+    <div class="page-hero__scrim"></div>
     <div class="container">
-      <div class="hero__content">
-        <span class="hero__badge">Featured Properties</span>
-        <h1>My Listings</h1>
-        <p class="hero__subtitle">
-          Browse my current listings and recently sold properties in Greater Boston's premier communities.
+      <span class="eyebrow">Featured Properties</span>
+      <h1>Current &amp; recent<br /><em class="accent-italic">listings</em></h1>
+      <p class="page-hero__lead">
+        Browse my current listings and recently sold properties across Greater
+        Boston's premier communities.
+      </p>
+    </div>
+  </section>
+
+  <!-- Current listings -->
+  <section class="section section--white current">
+    <div class="container container--narrow">
+      <div class="current__card animate-scale">
+        <span class="eyebrow eyebrow--plain">Live Inventory</span>
+        <h2>View All Current Listings</h2>
+        <p>
+          For the most up-to-date listings and property details — including
+          photos, virtual tours, and full property information — visit my
+          profile on the Chinatti Realty Group website.
         </p>
+        <a
+          href="https://www.chinattirealty.com/agents/allison-murray/"
+          target="_blank"
+          rel="noopener"
+          class="btn btn--primary btn--large"
+        >
+          View Listings on Chinatti Realty
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Listings Section -->
-  <section class="section listings">
+  <!-- Recently sold -->
+  <section class="section section--light sold">
     <div class="container">
-      <div class="listings__intro">
-        <h2>Current & Featured Listings</h2>
-        <p>
-          For the most up-to-date listings and property details, please visit my profile on the
-          Chinatti Realty Group website.
-        </p>
+      <div class="section__header animate-on-scroll">
+        <span class="eyebrow eyebrow--center">Recently Sold</span>
+        <h2>A sample of recent<br /><em class="accent-italic">successful sales</em></h2>
       </div>
-
-      <div class="listings__embed">
-        <div class="listings__embed-card">
-          <div class="listings__embed-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-              <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
-          </div>
-          <h3>View All Listings</h3>
-          <p>
-            See my complete portfolio of available properties, including detailed photos,
-            virtual tours, and property information.
-          </p>
-          <a
-            href="https://www.chinattirealty.com/agents/allison-murray/"
-            target="_blank"
-            rel="noopener"
-            class="btn btn--primary btn--large"
-          >
-            View Listings on Chinatti Realty
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Recently Sold Section -->
-      <div class="sold-section">
-        <h3 class="sold-section__title">Recently Sold</h3>
-        <p class="sold-section__subtitle">A sample of my recent successful transactions</p>
-        <div class="sold-grid animate-stagger">
-          {recentlySold.map(property => (
-            <div class="sold-card">
-              <div class="sold-card__image">
-                <span class="sold-card__badge">{property.status}</span>
-              </div>
-              <div class="sold-card__content">
-                <span class="sold-card__price">{property.price}</span>
-                <h4 class="sold-card__address">{property.address}</h4>
-                <span class="sold-card__location">{property.location}</span>
-                <div class="sold-card__details">
-                  <span>{property.beds} bed</span>
-                  <span>{property.baths} bath</span>
-                  <span>{property.sqft} sqft</span>
-                </div>
+      <div class="sold__grid animate-stagger">
+        {recentlySold.map(property => (
+          <div class="sold__card">
+            <div class="sold__image">
+              <img src={property.image} alt={`${property.address} — ${property.location}`} loading="lazy" />
+              <span class="sold__badge">{property.status}</span>
+            </div>
+            <div class="sold__content">
+              <span class="sold__price">{property.price}</span>
+              <h3 class="sold__address">{property.address}</h3>
+              <span class="sold__location">{property.location}</span>
+              <div class="sold__details">
+                <span>{property.beds} bed</span>
+                <span class="sold__dot" aria-hidden="true"></span>
+                <span>{property.baths} bath</span>
+                <span class="sold__dot" aria-hidden="true"></span>
+                <span>{property.sqft} sqft</span>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div class="listings__service-areas">
-        <h3>I Specialize in These Communities</h3>
-        <div class="listings__areas-grid">
-          <a href="/areas/wellesley" class="listings__area">
-            <span class="listings__area-name">Wellesley</span>
-            <span class="listings__area-desc">Premier suburban living</span>
-          </a>
-          <a href="/areas/weston" class="listings__area">
-            <span class="listings__area-name">Weston</span>
-            <span class="listings__area-desc">Exclusive estates</span>
-          </a>
-          <a href="/areas/newton" class="listings__area">
-            <span class="listings__area-name">Newton</span>
-            <span class="listings__area-desc">13 unique villages</span>
-          </a>
-          <a href="/areas/lexington" class="listings__area">
-            <span class="listings__area-name">Lexington</span>
-            <span class="listings__area-desc">Historic character</span>
-          </a>
-          <a href="/areas/needham" class="listings__area">
-            <span class="listings__area-name">Needham</span>
-            <span class="listings__area-desc">Family-friendly</span>
-          </a>
-          <a href="/areas/natick" class="listings__area">
-            <span class="listings__area-name">Natick</span>
-            <span class="listings__area-desc">Growing hub</span>
-          </a>
-          <a href="/areas/waltham" class="listings__area">
-            <span class="listings__area-name">Waltham</span>
-            <span class="listings__area-desc">Urban energy</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Looking to Sell Section -->
-  <section class="section section--light sell">
-    <div class="container">
-      <div class="sell__grid">
-        <div class="sell__content">
-          <h2>Thinking of Selling?</h2>
-          <p>
-            If you're considering selling your home, I'd love to provide you with a complimentary
-            market analysis. I'll show you what similar homes are selling for and help you
-            understand your options.
-          </p>
-          <ul class="sell__benefits">
-            <li>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Free, no-obligation home valuation
-            </li>
-            <li>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Detailed market analysis for your area
-            </li>
-            <li>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Professional marketing strategy
-            </li>
-          </ul>
-          <a href="/sell" class="btn btn--primary btn--large">Get Your Free Home Valuation</a>
-        </div>
-
-        <div class="sell__image">
-          <div class="sell__image-placeholder">
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="1" x2="12" y2="23"></line>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-            <span>Get Top Dollar</span>
           </div>
-        </div>
+        ))}
+      </div>
+      <p class="sold__note animate-fade">Representative of recent transactions. Details available on request.</p>
+    </div>
+  </section>
+
+  <!-- Communities -->
+  <section class="section specialize">
+    <div class="container">
+      <div class="section__header animate-on-scroll">
+        <span class="eyebrow eyebrow--center">Communities</span>
+        <h2>Where I specialize</h2>
+      </div>
+      <div class="specialize__grid animate-stagger">
+        {areas.map(area => (
+          <a href={`/areas/${area.slug}`} class="specialize__card">
+            <span class="specialize__name">{area.name}</span>
+            <span class="specialize__desc">{area.desc}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- Thinking of selling -->
   <section class="section section--dark cta">
     <div class="container">
-      <div class="cta__content">
-        <h2>Looking for Something Specific?</h2>
+      <div class="cta__content animate-on-scroll">
+        <span class="eyebrow eyebrow--center">Thinking of Selling?</span>
+        <h2>Your home could be<br /><em class="accent-italic">the next success story</em></h2>
         <p class="cta__text">
-          Can't find what you're looking for? Let me know your criteria and I'll help you
-          find the perfect home, even if it's not yet on the market.
+          Get a complimentary market analysis — see what similar homes are
+          selling for and understand your options.
         </p>
         <div class="cta__buttons">
-          <a href="/contact" class="btn btn--primary btn--large">Contact Me</a>
-          <a href="tel:9788887649" class="btn btn--white">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            Call (978) 888-7649
-          </a>
+          <a href="/sell" class="btn btn--primary btn--large">Get Your Free Home Valuation</a>
+          <a href="tel:9788887649" class="btn btn--ghost btn--large">Call (978) 888-7649</a>
         </div>
       </div>
     </div>
@@ -225,323 +174,172 @@ const recentlySold = [
 </BaseLayout>
 
 <style>
-  /* Hero Section */
-  .hero {
-    position: relative;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: var(--color-white);
-    padding: var(--spacing-2xl) 0;
-    overflow: hidden;
+  .page-hero--short {
+    min-height: 52vh;
   }
 
-  .hero__bg {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  .hero__content {
-    position: relative;
+  /* Current listings card */
+  .current__card {
     text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    background-color: var(--paper);
   }
 
-  .hero__badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(201, 162, 39, 0.2);
-    color: var(--color-accent-light);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: var(--radius-xl);
-    margin-bottom: var(--spacing-md);
+  .current__card p {
+    max-width: 560px;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--ink-mute);
   }
 
-  .hero h1 {
-    color: var(--color-white);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .hero__subtitle {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 0;
-  }
-
-  /* Listings Section */
-  .listings__intro {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto var(--spacing-2xl);
-  }
-
-  .listings__intro p {
-    color: var(--color-gray);
-    font-size: 1.125rem;
-  }
-
-  .listings__embed {
-    margin-bottom: var(--spacing-3xl);
-  }
-
-  .listings__embed-card {
-    background-color: var(--color-off-white);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-3xl);
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .listings__embed-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 96px;
-    height: 96px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border-radius: 50%;
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .listings__embed-card h3 {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .listings__embed-card p {
-    color: var(--color-gray);
-    margin-bottom: var(--spacing-lg);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Recently Sold Section */
-  .sold-section {
-    margin-bottom: var(--spacing-3xl);
-  }
-
-  .sold-section__title {
-    text-align: center;
-    margin-bottom: var(--spacing-xs);
-  }
-
-  .sold-section__subtitle {
-    text-align: center;
-    color: var(--color-gray);
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .sold-grid {
+  /* Sold grid */
+  .sold__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
 
-  .sold-card {
-    background: var(--color-white);
-    border-radius: var(--radius-lg);
+  .sold__card {
+    background-color: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-normal);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
   }
 
-  .sold-card:hover {
-    transform: translateY(-4px);
+  .sold__card:hover {
     box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
   }
 
-  .sold-card__image {
-    height: 160px;
-    background: linear-gradient(135deg, var(--color-light-gray) 0%, var(--color-off-white) 100%);
+  .sold__image {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    aspect-ratio: 4/3;
+    overflow: hidden;
   }
 
-  .sold-card__image::after {
-    content: "SOLD";
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    opacity: 0.3;
+  .sold__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .sold-card__badge {
+  .sold__card:hover .sold__image img {
+    transform: scale(1.06);
+  }
+
+  .sold__badge {
     position: absolute;
-    top: var(--spacing-sm);
-    left: var(--spacing-sm);
-    background: var(--color-accent);
-    color: var(--color-white);
-    font-size: 0.6875rem;
+    top: 0.875rem;
+    left: 0.875rem;
+    padding: 0.375rem 0.75rem;
+    background-color: var(--ink);
+    color: var(--paper);
+    font-size: 0.625rem;
     font-weight: 600;
     text-transform: uppercase;
-    padding: 0.375rem 0.625rem;
+    letter-spacing: 0.14em;
     border-radius: var(--radius-sm);
   }
 
-  .sold-card__content {
+  .sold__content {
     padding: var(--spacing-md);
   }
 
-  .sold-card__price {
-    font-family: var(--font-primary);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-
-  .sold-card__address {
-    font-size: 1rem;
-    margin: var(--spacing-xs) 0 0.25rem;
-  }
-
-  .sold-card__location {
-    font-size: 0.875rem;
-    color: var(--color-gray);
+  .sold__price {
     display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.125rem;
+  }
+
+  .sold__address {
+    font-size: 1.0625rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    margin-bottom: 0.125rem;
+  }
+
+  .sold__location {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--ink-mute);
     margin-bottom: var(--spacing-sm);
   }
 
-  .sold-card__details {
+  .sold__details {
     display: flex;
-    gap: var(--spacing-sm);
+    align-items: center;
+    gap: 0.625rem;
     font-size: 0.8125rem;
-    color: var(--color-gray);
+    color: var(--ink-mute);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--hairline);
   }
 
-  .sold-card__details span {
-    padding-right: var(--spacing-sm);
-    border-right: 1px solid var(--color-light-gray);
+  .sold__dot {
+    width: 3px;
+    height: 3px;
+    background-color: var(--bronze);
+    border-radius: 50%;
   }
 
-  .sold-card__details span:last-child {
-    border-right: none;
-    padding-right: 0;
-  }
-
-  @media (max-width: 1000px) {
-    .sold-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 600px) {
-    .sold-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .listings__service-areas h3 {
+  .sold__note {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    font-size: 0.8125rem;
+    color: var(--ink-mute);
+    margin: var(--spacing-lg) 0 0;
   }
 
-  .listings__areas-grid {
+  /* Specialize */
+  .specialize__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--spacing-md);
   }
 
-  .listings__area {
+  .specialize__card {
     display: flex;
     flex-direction: column;
+    gap: 0.25rem;
     padding: var(--spacing-md);
-    background-color: var(--color-white);
-    border: 1px solid var(--color-light-gray);
+    border: 1px solid var(--hairline);
     border-radius: var(--radius-md);
-    text-decoration: none;
     transition: all var(--transition-base);
   }
 
-  .listings__area:hover {
-    border-color: var(--color-accent);
+  .specialize__card:hover {
+    border-color: var(--bronze);
+    box-shadow: var(--shadow-sm);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
   }
 
-  .listings__area-name {
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: 0.25rem;
-  }
-
-  .listings__area-desc {
-    font-size: 0.875rem;
-    color: var(--color-gray);
-  }
-
-  /* Sell Section */
-  .sell__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
-    align-items: center;
-  }
-
-  .sell__content h2 {
-    margin-bottom: var(--spacing-md);
-  }
-
-  .sell__content > p {
-    color: var(--color-gray);
-    font-size: 1.125rem;
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .sell__benefits {
-    list-style: none;
-    margin-bottom: var(--spacing-xl);
-  }
-
-  .sell__benefits li {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+  .specialize__name {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
     font-weight: 500;
+    color: var(--ink);
   }
 
-  .sell__benefits svg {
-    color: var(--color-accent);
-    flex-shrink: 0;
+  .specialize__desc {
+    font-size: 0.8125rem;
+    color: var(--ink-mute);
   }
 
-  .sell__image-placeholder {
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-    border-radius: var(--radius-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-white);
-    gap: var(--spacing-md);
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .sell__image-placeholder span {
-    font-family: var(--font-primary);
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-
-  /* CTA Section */
+  /* CTA */
   .cta__content {
     text-align: center;
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
   }
 
   .cta__text {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    color: rgba(250, 248, 244, 0.72);
     margin-bottom: var(--spacing-xl);
   }
 
@@ -552,22 +350,17 @@ const recentlySold = [
     gap: var(--spacing-sm);
   }
 
-  /* Responsive */
-  @media (max-width: 900px) {
-    .sell__grid {
-      grid-template-columns: 1fr;
-    }
-
-    .sell__image {
-      order: -1;
-    }
-
-    .sell__image-placeholder {
-      max-width: 300px;
+  @media (max-width: 1000px) {
+    .sold__grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 600px) {
+    .sold__grid {
+      grid-template-columns: 1fr;
+    }
+
     .cta__buttons {
       flex-direction: column;
       align-items: center;

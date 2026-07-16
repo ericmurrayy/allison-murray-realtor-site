@@ -15,7 +15,7 @@ const {
   title,
   description = "Allison Murray is a trusted real estate agent serving Wellesley, Newton, Weston, Lexington, Needham, Natick, and Waltham MA. Specializing in helping homeowners sell for top dollar.",
   canonical,
-  ogImage = "/og-default.jpg"
+  ogImage = "/images/hero-home.jpg"
 } = Astro.props;
 
 // Replace with your actual GA4 Measurement ID
@@ -31,6 +31,7 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#211d18" />
 
     <title>{siteTitle}</title>
 
@@ -40,6 +41,11 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -47,9 +53,13 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
     <!-- View Transitions -->
     <ViewTransitions />
 
-    <!-- Preconnect to external resources -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap"
+    />
 
     <!-- Google Analytics 4 -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
@@ -70,6 +80,8 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
         "telephone": "(978) 888-7649",
         "email": "allison@chinattirealty.com",
         "url": "https://allisonmurrayrealtor.com",
+        "image": "https://allisonmurrayrealtor.com/allison-headshot.jpg",
+        "priceRange": "$$$",
         "areaServed": [
           {"@type": "City", "name": "Wellesley", "addressRegion": "MA"},
           {"@type": "City", "name": "Weston", "addressRegion": "MA"},
@@ -93,21 +105,13 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
     </main>
     <Footer />
 
-    <!-- Floating Contact Button (Mobile) -->
-    <a href="tel:9788887649" class="floating-cta" aria-label="Call Allison Murray">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-      </svg>
-      <span>Call Now</span>
-    </a>
-
     <!-- Sticky Bottom CTA Bar (Mobile) -->
     <div class="sticky-cta-bar">
       <a href="/sell" class="sticky-cta-bar__btn sticky-cta-bar__btn--primary">
-        Free Home Value
+        Home Valuation
       </a>
       <a href="tel:9788887649" class="sticky-cta-bar__btn sticky-cta-bar__btn--secondary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
         Call
@@ -123,14 +127,15 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
 </style>
 
 <script>
-  function initAnimations() {
-    // Scroll Animation Observer
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -50px 0px',
-      threshold: 0.1
-    };
+  let revealObserver: IntersectionObserver | undefined;
+  let countObserver: IntersectionObserver | undefined;
 
+  function initAnimations() {
+    // Disconnect observers from before a view transition
+    revealObserver?.disconnect();
+    countObserver?.disconnect();
+
+    // Reveal-on-scroll observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -138,19 +143,55 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
 
-    // Observe all animated elements
     document.querySelectorAll('.animate-on-scroll, .animate-fade, .animate-scale, .animate-stagger, .animate-slide-left, .animate-slide-right').forEach(el => {
-      // Reset visibility for view transitions
       el.classList.remove('is-visible');
       observer.observe(el);
     });
+    revealObserver = observer;
+
+    // Count-up stats: <span data-count="450" data-prefix="$" data-suffix="M+">
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const formatValue = (el: Element, value: number) => {
+      const prefix = el.getAttribute('data-prefix') || '';
+      const suffix = el.getAttribute('data-suffix') || '';
+      const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      el.textContent = prefix + value.toLocaleString('en-US', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      }) + suffix;
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        counterObserver.unobserve(el);
+        const target = parseFloat(el.getAttribute('data-count') || '0');
+        if (reduceMotion) {
+          formatValue(el, target);
+          return;
+        }
+        const duration = 1800;
+        const start = performance.now();
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          formatValue(el, target * eased);
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+    countObserver = counterObserver;
 
     // Form loading state
     document.querySelectorAll('form').forEach(form => {
       form.addEventListener('submit', function() {
-        const wrapper = this.closest('.hero__form') || this.closest('.contact__form-card');
+        const wrapper = this.closest('.form-card');
         if (wrapper) {
           wrapper.classList.add('form-loading');
         }
@@ -158,9 +199,6 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
     });
   }
 
-  // Initialize on first load
   initAnimations();
-
-  // Re-initialize after view transitions
   document.addEventListener('astro:after-swap', initAnimations);
 </script>

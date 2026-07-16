@@ -14,92 +14,72 @@ const serviceAreas = [
 
 <footer class="footer">
   <div class="container">
-    <div class="footer__grid">
-      <!-- Brand Column -->
+    <div class="footer__top">
       <div class="footer__brand">
-        <div class="footer__logo">
+        <a href="/" class="footer__logo">
           <span class="footer__name">Allison Murray</span>
-          <span class="footer__title">Realtor</span>
-        </div>
+          <span class="footer__title">Greater Boston Real Estate</span>
+        </a>
         <p class="footer__tagline">
-          Your trusted partner for buying and selling homes in Greater Boston's most desirable communities.
+          Helping homeowners and buyers move with confidence across
+          Greater Boston &amp; MetroWest — with local expertise,
+          honest guidance, and results that speak for themselves.
         </p>
-        <div class="footer__brokerage">
-          <span>Chinatti Realty Group</span>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
         </div>
       </div>
 
-      <!-- Quick Links -->
-      <div class="footer__section">
-        <h4 class="footer__heading">Quick Links</h4>
+      <div class="footer__col">
+        <h4 class="footer__heading">Explore</h4>
         <ul class="footer__links">
           <li><a href="/sell">Sell Your Home</a></li>
           <li><a href="/buy">Buy a Home</a></li>
           <li><a href="/listings">Listings</a></li>
-          <li><a href="/areas">Areas We Serve</a></li>
+          <li><a href="/areas">Communities</a></li>
           <li><a href="/reviews">Client Reviews</a></li>
           <li><a href="/about">About Allison</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
 
-      <!-- Service Areas -->
-      <div class="footer__section">
-        <h4 class="footer__heading">Service Areas</h4>
-        <ul class="footer__links footer__links--areas">
+      <div class="footer__col">
+        <h4 class="footer__heading">Communities</h4>
+        <ul class="footer__links">
           {serviceAreas.map(area => (
             <li><a href={`/areas/${area.toLowerCase()}`}>{area}, MA</a></li>
           ))}
         </ul>
       </div>
 
-      <!-- Contact -->
-      <div class="footer__section">
-        <h4 class="footer__heading">Get In Touch</h4>
-        <div class="footer__contact">
-          <a href="tel:9788887649" class="footer__contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            (978) 888-7649
-          </a>
-          <a href="mailto:allison@chinattirealty.com" class="footer__contact-item">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            Email Allison
-          </a>
-        </div>
-        <div class="footer__cta">
-          <a href="/sell" class="btn btn--primary">Get Your Home Value</a>
-        </div>
-
-        <!-- Social Media -->
-        <div class="footer__social">
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </a>
-        </div>
+      <div class="footer__col footer__col--contact">
+        <h4 class="footer__heading">Get in Touch</h4>
+        <a href="tel:9788887649" class="footer__contact-item">(978) 888-7649</a>
+        <a href="mailto:allison@chinattirealty.com" class="footer__contact-item">allison@chinattirealty.com</a>
+        <p class="footer__brokerage">Chinatti Realty Group</p>
+        <a href="/sell" class="btn btn--primary footer__cta">What's My Home Worth?</a>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <p>&copy; {currentYear} Allison Murray, Realtor. All rights reserved.</p>
+      <p>&copy; {currentYear} Allison Murray, Realtor&reg;. All rights reserved.</p>
       <p class="footer__disclaimer">
-        Licensed Real Estate Agent in Massachusetts. Equal Housing Opportunity.
+        Licensed Real Estate Agent in Massachusetts &middot; Chinatti Realty Group &middot; Equal Housing Opportunity
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline-block;vertical-align:-2px;margin-left:4px"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
       </p>
       <p class="footer__legal-links">
         <a href="/privacy">Privacy Policy</a>
@@ -110,162 +90,156 @@ const serviceAreas = [
 
 <style>
   .footer {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    background-color: var(--ink);
+    color: rgba(250, 248, 244, 0.72);
     padding: var(--spacing-3xl) 0 var(--spacing-lg);
   }
 
-  .footer__grid {
+  .footer__top {
     display: grid;
-    grid-template-columns: 1.5fr repeat(3, 1fr);
+    grid-template-columns: 1.6fr 0.8fr 0.8fr 1.2fr;
     gap: var(--spacing-2xl);
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .footer__brand {
-    padding-right: var(--spacing-lg);
+    padding-bottom: var(--spacing-2xl);
+    border-bottom: 1px solid var(--hairline-light);
+    margin-bottom: var(--spacing-lg);
   }
 
   .footer__logo {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
-    line-height: 1.2;
+    line-height: 1.15;
     margin-bottom: var(--spacing-md);
   }
 
   .footer__name {
-    font-family: var(--font-primary);
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--paper);
   }
 
   .footer__title {
-    font-size: 0.75rem;
+    font-size: 0.5625rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-accent);
+    letter-spacing: 0.32em;
+    color: var(--bronze-pale);
     font-weight: 600;
+    margin-top: 3px;
   }
 
   .footer__tagline {
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: rgba(250, 248, 244, 0.6);
     margin-bottom: var(--spacing-md);
-    line-height: 1.6;
-  }
-
-  .footer__brokerage {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
+    max-width: 360px;
   }
 
   .footer__heading {
-    font-family: var(--font-secondary);
-    font-size: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
     font-weight: 600;
-    color: var(--color-white);
+    color: var(--bronze-pale);
     margin-bottom: var(--spacing-md);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.24em;
   }
 
   .footer__links {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: 0.625rem;
   }
 
   .footer__links a {
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9375rem;
+    color: rgba(250, 248, 244, 0.72);
     transition: color var(--transition-fast);
   }
 
   .footer__links a:hover {
-    color: var(--color-accent);
-  }
-
-  .footer__links--areas li {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9375rem;
-  }
-
-  .footer__contact {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
+    color: var(--bronze-pale);
   }
 
   .footer__contact-item {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 500;
+    display: block;
+    font-size: 0.9375rem;
+    color: rgba(250, 248, 244, 0.85);
+    margin-bottom: 0.625rem;
     transition: color var(--transition-fast);
   }
 
   .footer__contact-item:hover {
-    color: var(--color-accent);
+    color: var(--bronze-pale);
+  }
+
+  .footer__brokerage {
+    font-size: 0.8125rem;
+    color: rgba(250, 248, 244, 0.45);
+    margin-bottom: var(--spacing-md);
   }
 
   .footer__cta {
-    margin-top: var(--spacing-md);
+    padding: 0.875rem 1.5rem;
+    font-size: 0.75rem;
   }
 
   .footer__social {
     display: flex;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
+    gap: 0.75rem;
   }
 
   .footer__social a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--hairline-light);
     border-radius: 50%;
-    color: var(--color-white);
+    color: rgba(250, 248, 244, 0.75);
     transition: all var(--transition-fast);
   }
 
   .footer__social a:hover {
-    background-color: var(--color-accent);
-    transform: translateY(-2px);
+    border-color: var(--bronze);
+    background-color: var(--bronze);
+    color: var(--white);
   }
 
   .footer__bottom {
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
   }
 
   .footer__bottom p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.875rem;
+    color: rgba(250, 248, 244, 0.42);
+    font-size: 0.8125rem;
     margin-bottom: var(--spacing-xs);
   }
 
-  .footer__disclaimer {
-    font-size: 0.8125rem !important;
+  .footer__legal-links a {
+    color: rgba(250, 248, 244, 0.55);
+    font-size: 0.8125rem;
   }
 
-  @media (max-width: 900px) {
-    .footer__grid {
+  .footer__legal-links a:hover {
+    color: var(--bronze-pale);
+  }
+
+  @media (max-width: 980px) {
+    .footer__top {
       grid-template-columns: repeat(2, 1fr);
       gap: var(--spacing-xl);
     }
 
     .footer__brand {
       grid-column: span 2;
-      padding-right: 0;
     }
   }
 
-  @media (max-width: 600px) {
-    .footer__grid {
+  @media (max-width: 560px) {
+    .footer__top {
       grid-template-columns: 1fr;
     }
 

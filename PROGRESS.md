@@ -231,6 +231,28 @@ npm run format:check
 - Added accessibility support (prefers-reduced-motion)
 - Updated animation initialization to work with view transitions
 
+### Session 5 (July 2026) — Premium Redesign
+- Full "quiet luxury" visual redesign modeled on top-performing agent sites
+  (Serhant, Aaron Kirman, Jade Mills, Luxury Presence flagship builds)
+- New design system: Cormorant Garamond display serif + Inter body,
+  warm ink/cream/bronze palette, editorial spacing, squared letterspaced buttons
+- Photography library added under `public/images/` (Unsplash-licensed
+  New England homes/interiors — swap for real listing photos when available)
+- Fixed transparent header that solidifies on scroll + full-screen mobile menu
+- Homepage rebuilt: full-bleed photo hero with Ken Burns zoom, count-up stats
+  bar, credential strip, dual seller/buyer photo pathways, editorial
+  "Meet Allison" section, process band, photo community cards, testimonial
+  carousel, and a final CTA section with contact form over imagery
+- Sell page rebuilt as a conversion landing page with a 3-step valuation form
+  (address → details → contact, with progress bar and per-step validation)
+- Buy, About, Contact, Reviews, Listings, Areas hub, and all 7 town pages
+  restyled with photo heroes and the new system; town pages keep market
+  stats + FAQ/valuations schema intact
+- Removed the fabricated "buyer demand up 23%" urgency banner
+- Stats render real values server-side and animate on scroll (JS-optional)
+- Mobile QA pass: no horizontal overflow on any page; forms, carousel,
+  and mobile menu verified with Playwright
+
 ### Session 4 (January 2026)
 - Improved development tooling setup
 - Added Prettier with Astro plugin for code formatting
