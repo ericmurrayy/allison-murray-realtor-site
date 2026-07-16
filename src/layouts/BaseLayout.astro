@@ -127,7 +127,14 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
 </style>
 
 <script>
+  let revealObserver: IntersectionObserver | undefined;
+  let countObserver: IntersectionObserver | undefined;
+
   function initAnimations() {
+    // Disconnect observers from before a view transition
+    revealObserver?.disconnect();
+    countObserver?.disconnect();
+
     // Reveal-on-scroll observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -142,6 +149,7 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
       el.classList.remove('is-visible');
       observer.observe(el);
     });
+    revealObserver = observer;
 
     // Count-up stats: <span data-count="450" data-prefix="$" data-suffix="M+">
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -178,6 +186,7 @@ const siteTitle = `${title} | Allison Murray, Realtor`;
     }, { threshold: 0.4 });
 
     document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+    countObserver = counterObserver;
 
     // Form loading state
     document.querySelectorAll('form').forEach(form => {

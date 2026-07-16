@@ -79,7 +79,7 @@ const serviceAreas = [
     <div class="container">
       <div class="areas__grid">
         {serviceAreas.map((area, i) => (
-          <a href={`/areas/${area.slug}`} class:list={['area-card', 'animate-on-scroll', { 'area-card--wide': i === 0 }]}>
+          <a href={`/areas/${area.slug}`} class="area-card animate-on-scroll">
             <div class="area-card__image">
               <img src={`/images/town-${area.slug}.jpg`} alt={`Homes in ${area.name}, Massachusetts`} loading={i < 2 ? 'eager' : 'lazy'} />
             </div>

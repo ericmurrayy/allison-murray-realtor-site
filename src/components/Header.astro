@@ -324,16 +324,19 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
+  let scrollHandler: (() => void) | undefined;
+
   function initHeader() {
     const header = document.querySelector('[data-header]');
     if (!header) return;
 
-    // Scroll state
-    const onScroll = () => {
+    // Scroll state — remove any handler from before a view transition
+    if (scrollHandler) window.removeEventListener('scroll', scrollHandler);
+    scrollHandler = () => {
       header.classList.toggle('is-scrolled', window.scrollY > 24);
     };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    scrollHandler();
+    window.addEventListener('scroll', scrollHandler, { passive: true });
 
     // Mobile toggle
     const toggle = header.querySelector('.nav__toggle');

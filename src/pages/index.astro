@@ -1170,7 +1170,12 @@ const process = [
 </style>
 
 <script>
+  let timer: ReturnType<typeof setInterval> | undefined;
+
   function initCarousel() {
+    // Clear any interval left over from a previous page (view transitions)
+    if (timer) clearInterval(timer);
+
     const carousel = document.querySelector('[data-carousel]');
     if (!carousel) return;
 
@@ -1179,7 +1184,6 @@ const process = [
     const prev = carousel.querySelector('[data-prev]');
     const next = carousel.querySelector('[data-next]');
     let current = 0;
-    let timer: ReturnType<typeof setInterval> | undefined;
 
     const goTo = (index: number) => {
       current = (index + slides.length) % slides.length;
